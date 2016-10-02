@@ -18,6 +18,7 @@ const MqttLog = (props) => {
     <table className="table log-events-table">
       <thead>
         <tr>
+          <th>Date</th>
           <th>Time</th>
           <th>Topic</th>
           <th>Message</th>

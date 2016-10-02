@@ -23,12 +23,12 @@ class MqttLogViewer extends Component {
 
   componentDidMount() {
     this.fetchMqttLogEvents();
-    setInterval(this.fetchMqttLogEvents,1000)
+    var poller = setInterval(this.fetchMqttLogEvents,1000)
   }
 
-  // componentWillUnmount() {
-  //   this.serverRequest.abort()
-  // }
+  componentWillUnmount() {
+    clearInterval(poller);
+  }
 
   render() {
     return(
