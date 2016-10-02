@@ -2,31 +2,44 @@ require('dotenv').config();
 import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
+import MQTTClient from './lib/mqtt_client';
 
 // Setup Mongoose
-mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/riot', { promiseLibrary: require('bluebird') });
-
-const app = express();
-// configure app to use bodyParser()
-// this will let us get the data from a POST
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-var port = process.env.PORT || 8080;        // set our port
-
-var router = express.Router();              // get an instance of the express Router
-
-router.get('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });
+// Set native promises as mongoose promise
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.MONGO_DB_HOST, (error) => {
+  if (error) {
+    console.error('Please make sure Mongodb is installed and running!'); // eslint-disable-line no-console
+    throw error;
+  }
 });
 
+var port = process.env.PORT || 8080;
+var server = express();
 
-// REGISTER OUR ROUTES -------------------------------
-// all of our routes will be prefixed with /api
-app.use('/api', router);
+server.use(bodyParser.urlencoded({ extended: true }));
+server.use(bodyParser.json());
 
-// START THE SERVER
-// =============================================================================
-app.listen(port);
-console.log('Magic happens on port ' + port);
+server.use('/api', require('./routes/mqtt_event.routes'));
+server.use(express.static('public'));
+
+
+server.listen(port);
+
+
+console.log('\n\n\n');
+console.log('        ██████╗ ██╗ ██████╗ ████████╗');
+console.log('        ██╔══██╗██║██╔═══██╗╚══██╔══╝');
+console.log('        ██████╔╝██║██║   ██║   ██║   ');
+console.log('        ██╔══██╗██║██║   ██║   ██║   ');
+console.log('        ██║  ██║██║╚██████╔╝   ██║   ');
+console.log('        ╚═╝  ╚═╝╚═╝ ╚═════╝    ╚═╝   ');
+console.log('        -----------------------------');
+console.log(`        FULL ON RIOT AT PORT ${port}!!!!`);
+console.log('\n\n\n');
+
+
+
+var mqttClient = new MQTTClient();
+
+console.log(server._router.stack)

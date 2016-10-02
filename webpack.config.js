@@ -5,19 +5,16 @@ module.exports = {
       filename: './public/bundle.js'
     },
     resolve: {
-      extensions: ['.js']
+      extensions: ['','.js']
     },
     module: {
-      loaders: [
-        {
-          loader: 'babel-loader',
-          query: {
-            presets: ['react', 'es2015', 'stage-2']
-          },
-          test: /\.js?$/,
-          exclude: /(node_modules|bower_components)/
+      loaders: [{
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: {
+          presets: ['react', 'es2015', 'stage-2']
         }
-      ]
+      }]
     }
 
 }
