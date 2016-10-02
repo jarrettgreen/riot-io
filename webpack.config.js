@@ -1,5 +1,19 @@
+var webpack = require('webpack');
+
 module.exports = {
-    entry: './client/app.js',
+    entry: [
+      'script!jquery/dist/jquery.min.js',
+      './client/app.js'
+    ],
+    externals: {
+      jquery: 'jquery'
+    },
+    plugins: [
+      new webpack.ProvidePlugin({
+        '$': 'jquery',
+        'jQuery': 'jquery'
+      }),
+    ],
     output: {
       path: __dirname,
       filename: './public/bundle.js'
@@ -8,13 +22,21 @@ module.exports = {
       extensions: ['','.js']
     },
     module: {
-      loaders: [{
-        exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['react', 'es2015', 'stage-2']
+      loaders: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: 'babel',
+          query: {
+            presets: ['react', 'es2015', 'stage-2']
+          }
+        },
+        {
+          test: /\.less$/,
+          exclude: /node_modules/,
+          loader: "style!css!less"
         }
-      }]
+      ]
     }
 
 }
