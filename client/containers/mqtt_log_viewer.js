@@ -32,7 +32,10 @@ class MqttLogViewer extends Component {
 
   render() {
     return(
+      <div>
+      <h1> MQTT Logs </h1>
       <MqttLog logEvents={this.state.logEvents} />
+      </div>
     )
   }
 }

@@ -13,7 +13,7 @@ class MQTTClient {
       connectTimeout: 30 * 1000,
       will: {
         topic: 'WillMsg',
-        payload: 'Connection Closed abnormally..!',
+        payload: "Riot lost it's connection!",
         qos: 0,
         retain: false
       },

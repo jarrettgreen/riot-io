@@ -8,7 +8,7 @@ import sanitizeHtml from 'sanitize-html';
  * @returns void
  */
 export function getMqttEvents(req, res) {
-  MqttEvent.find().sort('-dateAdded').exec((err, mqtt_events) => {
+  MqttEvent.find().sort({ created: 'desc'}).exec((err, mqtt_events) => {
     if (err) {
       res.status(500).send(err);
     }
