@@ -92,6 +92,14 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
+	var _nav_bar = __webpack_require__(176);
+
+	var _nav_bar2 = _interopRequireDefault(_nav_bar);
+
+	var _mqtt_log_viewer = __webpack_require__(177);
+
+	var _mqtt_log_viewer2 = _interopRequireDefault(_mqtt_log_viewer);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -100,7 +108,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(176);
+	__webpack_require__(181);
 
 	var App = function (_Component) {
 	  _inherits(App, _Component);
@@ -115,9 +123,10 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'h1',
+	        'div',
 	        null,
-	        'Riot !'
+	        _react2.default.createElement(_nav_bar2.default, null),
+	        _react2.default.createElement(_mqtt_log_viewer2.default, null)
 	      );
 	    }
 	  }]);
@@ -126,6 +135,17 @@
 	}(_react.Component);
 
 	_reactDom2.default.render(_react2.default.createElement(App, null), document.querySelector('#app'));
+	;
+
+	var _temp = function () {
+	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+	    return;
+	  }
+
+	  __REACT_HOT_LOADER__.register(App, 'App', '/Users/jarrettgreen/code/riot-io/client/app.js');
+	}();
+
+	;
 
 /***/ },
 /* 5 */
@@ -21498,13 +21518,308 @@
 /* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(5);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var NavBar = function (_Component) {
+	  _inherits(NavBar, _Component);
+
+	  function NavBar() {
+	    _classCallCheck(this, NavBar);
+
+	    return _possibleConstructorReturn(this, (NavBar.__proto__ || Object.getPrototypeOf(NavBar)).apply(this, arguments));
+	  }
+
+	  _createClass(NavBar, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "ul",
+	        { className: "nav nav-tabs" },
+	        _react2.default.createElement(
+	          "li",
+	          { role: "presentation", className: "active" },
+	          _react2.default.createElement(
+	            "a",
+	            { href: "#" },
+	            "Home"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "li",
+	          { role: "presentation" },
+	          _react2.default.createElement(
+	            "a",
+	            { href: "#" },
+	            "Profile"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "li",
+	          { role: "presentation" },
+	          _react2.default.createElement(
+	            "a",
+	            { href: "#" },
+	            "Messages"
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return NavBar;
+	}(_react.Component);
+
+	var _default = NavBar;
+	exports.default = _default;
+	;
+
+	var _temp = function () {
+	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+	    return;
+	  }
+
+	  __REACT_HOT_LOADER__.register(NavBar, "NavBar", "/Users/jarrettgreen/code/riot-io/client/components/nav_bar.js");
+
+	  __REACT_HOT_LOADER__.register(_default, "default", "/Users/jarrettgreen/code/riot-io/client/components/nav_bar.js");
+	}();
+
+	;
+
+/***/ },
+/* 177 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(5);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _mqtt_log = __webpack_require__(179);
+
+	var _mqtt_log2 = _interopRequireDefault(_mqtt_log);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MqttLogViewer = function (_Component) {
+	  _inherits(MqttLogViewer, _Component);
+
+	  function MqttLogViewer(props) {
+	    _classCallCheck(this, MqttLogViewer);
+
+	    var _this = _possibleConstructorReturn(this, (MqttLogViewer.__proto__ || Object.getPrototypeOf(MqttLogViewer)).call(this, props));
+
+	    _this.state = { logEvents: [] };
+	    return _this;
+	  }
+
+	  _createClass(MqttLogViewer, [{
+	    key: 'fetchMqttLogEvents',
+	    value: function fetchMqttLogEvents() {
+	      var _this2 = this;
+
+	      $.ajax({
+	        url: '/api/mqtt_events',
+	        dataType: 'json',
+	        success: function success(data) {
+	          _this2.setState({ logEvents: data });
+	        },
+	        error: function error(xhr, status, err) {
+	          console.error('/api/mqtt_events', status, err.toString());
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.fetchMqttLogEvents();
+	      // setInterval(this.fetchMqttLogEvents,1000)
+	    }
+
+	    // componentWillUnmount() {
+	    //   this.serverRequest.abort()
+	    // }
+
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(_mqtt_log2.default, { logEvents: this.state.logEvents });
+	    }
+	  }]);
+
+	  return MqttLogViewer;
+	}(_react.Component);
+
+	var _default = MqttLogViewer;
+	exports.default = _default;
+	;
+
+	var _temp = function () {
+	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+	    return;
+	  }
+
+	  __REACT_HOT_LOADER__.register(MqttLogViewer, 'MqttLogViewer', '/Users/jarrettgreen/code/riot-io/client/containers/mqtt_log_viewer.js');
+
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/jarrettgreen/code/riot-io/client/containers/mqtt_log_viewer.js');
+	}();
+
+	;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(178)))
+
+/***/ },
+/* 178 */
+/***/ function(module, exports) {
+
+	module.exports = jQuery;
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(5);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _mqtt_log_event = __webpack_require__(180);
+
+	var _mqtt_log_event2 = _interopRequireDefault(_mqtt_log_event);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var MqttLog = function MqttLog(props) {
+	  var logEvents = props.logEvents.map(function (entry) {
+	    return _react2.default.createElement(_mqtt_log_event2.default, {
+	      id: entry._id,
+	      topic: entry.topic,
+	      message: entry.message
+	    });
+	  });
+
+	  return _react2.default.createElement(
+	    'ul',
+	    null,
+	    logEvents
+	  );
+	};
+
+	var _default = MqttLog;
+	exports.default = _default;
+	;
+
+	var _temp = function () {
+	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+	    return;
+	  }
+
+	  __REACT_HOT_LOADER__.register(MqttLog, 'MqttLog', '/Users/jarrettgreen/code/riot-io/client/components/mqtt_log.js');
+
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/jarrettgreen/code/riot-io/client/components/mqtt_log.js');
+	}();
+
+	;
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(5);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var MqttLogEvent = function MqttLogEvent(_ref) {
+	  var id = _ref.id;
+	  var topic = _ref.topic;
+	  var message = _ref.message;
+
+
+	  return _react2.default.createElement(
+	    'li',
+	    { key: id, className: 'mqtt-log-item' },
+	    _react2.default.createElement(
+	      'span',
+	      { className: 'label ' + (topic === 'WillMsg' ? 'label-danger' : 'label-success') },
+	      topic
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      message
+	    )
+	  );
+	};
+
+	var _default = MqttLogEvent;
+	exports.default = _default;
+	;
+
+	var _temp = function () {
+	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+	    return;
+	  }
+
+	  __REACT_HOT_LOADER__.register(MqttLogEvent, 'MqttLogEvent', '/Users/jarrettgreen/code/riot-io/client/components/mqtt_log_event.js');
+
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/jarrettgreen/code/riot-io/client/components/mqtt_log_event.js');
+	}();
+
+	;
+
+/***/ },
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(177);
+	var content = __webpack_require__(182);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(179)(content, {});
+	var update = __webpack_require__(184)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -21521,10 +21836,10 @@
 	}
 
 /***/ },
-/* 177 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(178)();
+	exports = module.exports = __webpack_require__(183)();
 	// imports
 
 
@@ -21535,7 +21850,7 @@
 
 
 /***/ },
-/* 178 */
+/* 183 */
 /***/ function(module, exports) {
 
 	/*
@@ -21591,7 +21906,7 @@
 
 
 /***/ },
-/* 179 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

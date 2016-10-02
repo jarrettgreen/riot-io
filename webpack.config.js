@@ -6,12 +6,12 @@ module.exports = {
       './client/app.js'
     ],
     externals: {
-      jquery: 'jquery'
+      jquery: 'jQuery'
     },
     plugins: [
       new webpack.ProvidePlugin({
         '$': 'jquery',
-        'jQuery': 'jquery'
+        'jQuery': 'jquery',
       }),
     ],
     output: {

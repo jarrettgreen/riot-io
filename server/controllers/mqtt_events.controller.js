@@ -12,7 +12,7 @@ export function getMqttEvents(req, res) {
     if (err) {
       res.status(500).send(err);
     }
-    res.json({ mqtt_events });
+    res.json(mqtt_events);
   });
 }
 
