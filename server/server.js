@@ -41,5 +41,3 @@ console.log('\n\n\n');
 
 
 var mqttClient = new MQTTClient();
-
-console.log(server._router.stack)
