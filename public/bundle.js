@@ -21640,6 +21640,7 @@
 	    var _this = _possibleConstructorReturn(this, (MqttLogViewer.__proto__ || Object.getPrototypeOf(MqttLogViewer)).call(this, props));
 
 	    _this.state = { logEvents: [] };
+	    _this.fetchMqttLogEvents = _this.fetchMqttLogEvents.bind(_this);
 	    return _this;
 	  }
 
@@ -21663,7 +21664,7 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      this.fetchMqttLogEvents();
-	      // setInterval(this.fetchMqttLogEvents,1000)
+	      setInterval(this.fetchMqttLogEvents, 1000);
 	    }
 
 	    // componentWillUnmount() {
@@ -21726,16 +21727,44 @@
 	var MqttLog = function MqttLog(props) {
 	  var logEvents = props.logEvents.map(function (entry) {
 	    return _react2.default.createElement(_mqtt_log_event2.default, {
-	      id: entry._id,
+	      key: entry._id,
 	      topic: entry.topic,
-	      message: entry.message
+	      message: entry.message,
+	      timestamp: entry.created
 	    });
 	  });
 
 	  return _react2.default.createElement(
-	    'ul',
-	    null,
-	    logEvents
+	    'table',
+	    { className: 'table log-events-table' },
+	    _react2.default.createElement(
+	      'thead',
+	      null,
+	      _react2.default.createElement(
+	        'tr',
+	        null,
+	        _react2.default.createElement(
+	          'th',
+	          null,
+	          'Time'
+	        ),
+	        _react2.default.createElement(
+	          'th',
+	          null,
+	          'Topic'
+	        ),
+	        _react2.default.createElement(
+	          'th',
+	          null,
+	          'Message'
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'tbody',
+	      null,
+	      logEvents
+	    )
 	  );
 	};
 
@@ -21775,18 +21804,28 @@
 	  var id = _ref.id;
 	  var topic = _ref.topic;
 	  var message = _ref.message;
+	  var timestamp = _ref.timestamp;
 
 
 	  return _react2.default.createElement(
-	    'li',
-	    { key: id, className: 'mqtt-log-item' },
+	    'tr',
+	    { className: 'mqtt-log-item' },
 	    _react2.default.createElement(
-	      'span',
-	      { className: 'label ' + (topic === 'WillMsg' ? 'label-danger' : 'label-success') },
-	      topic
+	      'td',
+	      null,
+	      timestamp
 	    ),
 	    _react2.default.createElement(
-	      'p',
+	      'td',
+	      null,
+	      _react2.default.createElement(
+	        'span',
+	        { className: 'label ' + (topic === 'WillMsg' ? 'label-danger' : 'label-success') },
+	        topic
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'td',
 	      null,
 	      message
 	    )

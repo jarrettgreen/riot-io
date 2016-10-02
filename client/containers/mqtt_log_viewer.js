@@ -2,8 +2,9 @@ import React, {Component} from 'react'
 import MqttLog from '../components/mqtt_log'
 class MqttLogViewer extends Component {
   constructor(props) {
-   super(props);
-   this.state = {logEvents:[]};
+    super(props);
+    this.state = {logEvents:[]};
+    this.fetchMqttLogEvents = this.fetchMqttLogEvents.bind(this);
   }
 
   fetchMqttLogEvents() {
@@ -22,7 +23,7 @@ class MqttLogViewer extends Component {
 
   componentDidMount() {
     this.fetchMqttLogEvents();
-    // setInterval(this.fetchMqttLogEvents,1000)
+    setInterval(this.fetchMqttLogEvents,1000)
   }
 
   // componentWillUnmount() {

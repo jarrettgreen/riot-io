@@ -1,12 +1,13 @@
 import React from 'react';
 
-const MqttLogEvent = ({id, topic, message}) => {
+const MqttLogEvent = ({id, topic, message, timestamp}) => {
 
   return (
-    <li key={id} className="mqtt-log-item">
-      <span className={`label ${topic === 'WillMsg' ? 'label-danger' : 'label-success'}`}>{topic}</span>
-      <p>{message}</p>
-    </li>
+    <tr className="mqtt-log-item">
+      <td>{timestamp}</td>
+      <td><span className={`label ${topic === 'WillMsg' ? 'label-danger' : 'label-success'}`}>{topic}</span></td>
+      <td>{message}</td>
+    </tr>
   )
 }
 

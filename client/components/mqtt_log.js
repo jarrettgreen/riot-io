@@ -5,18 +5,28 @@ const MqttLog = (props) => {
   const logEvents = props.logEvents.map((entry) => {
     return (
       <MqttLogEvent
-             id = {entry._id}
+             key = {entry._id}
           topic = {entry.topic}
         message = {entry.message}
+      timestamp = {entry.created}
       />
     )
   })
 
 
   return (
-    <ul>
+    <table className="table log-events-table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Topic</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody>
       {logEvents}
-    </ul>
+      </tbody>
+    </table>
   )
 }
 
