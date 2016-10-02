@@ -34,7 +34,9 @@ class MqttLogViewer extends Component {
     return(
       <div>
       <h1> MQTT Logs </h1>
-      <MqttLog logEvents={this.state.logEvents} />
+      <div className="mqtt-log-container">
+        <MqttLog logEvents={this.state.logEvents} />
+      </div>
       </div>
     )
   }

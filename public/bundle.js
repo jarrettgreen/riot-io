@@ -27342,7 +27342,11 @@
 	          null,
 	          ' MQTT Logs '
 	        ),
-	        _react2.default.createElement(_mqtt_log2.default, { logEvents: this.state.logEvents })
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'mqtt-log-container' },
+	          _react2.default.createElement(_mqtt_log2.default, { logEvents: this.state.logEvents })
+	        )
 	      );
 	    }
 	  }]);
@@ -42042,7 +42046,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  background-color: #282c34 !important;\n  color: #abb2bf;\n}\nbody .mqtt-log-item {\n  font-family: monospace;\n}\nbody .mqtt-log-item .timestamp {\n  white-space: nowrap;\n}\nbody .mqtt-log-item .topic {\n  font-size: 1.2em;\n}\nbody .mqtt-log-item .message {\n  width: 100%;\n  font-family: monospace;\n  color: #fff;\n}\n", ""]);
+	exports.push([module.id, "body {\n  background-color: #282c34;\n  color: #abb2bf;\n}\nbody .mqtt-log-container {\n  margin-top: 40px;\n}\nbody .mqtt-log-container td {\n  border-top: 1px solid #3e4451 !important;\n}\nbody .mqtt-log-container .mqtt-log-item {\n  font-family: monospace;\n}\nbody .mqtt-log-container .mqtt-log-item .timestamp {\n  white-space: nowrap;\n}\nbody .mqtt-log-container .mqtt-log-item .topic {\n  font-size: 1.1em;\n}\nbody .mqtt-log-container .mqtt-log-item .message {\n  width: 100%;\n  font-family: monospace;\n  color: #fff;\n}\n", ""]);
 
 	// exports
 
