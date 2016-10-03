@@ -26,6 +26,6 @@ ReactDOM.render(
       <IndexRoute component={Home}/>
     </Route>
   </Router>,
-
+  
   document.querySelector('#app')
 );

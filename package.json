@@ -4,12 +4,31 @@
   "description": "React Internet of Things Dashboard & Controller",
   "main": "./server/server.js",
   "scripts": {
-    "start": "nodemon ./server/server.js --exec babel-node --presets es2015 && webpack -w",
+    "build": "webpack --display-chunks --progress",
+    "start": "nodemon ./server/server.js --exec babel-node --presets es2015",
     "start:webpack": "webpack-dev-server --hot --inline",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npm run build -- --display-modules --watch"
   },
+  "repository":{
+    "type": "git",
+    "url": "https://github.com/jarrettgreen/riot-io"
+  },
+  "keywords": [
+    "Express",
+    "React",
+    "MQTT",
+    "Internet of Things",
+    "IoT",
+    "Dashboard"
+    "Socket.IO"
+  ],
   "author": "Jarrett Green",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jarrettgreen/riot-io/issues"
+  },
+  "homepage": "https://github.com/jarrettgreen/riot-io/#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "css-loader": "^0.25.0",

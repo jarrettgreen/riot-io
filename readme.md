@@ -9,3 +9,11 @@ MQTT_USER=usename
 MQTT_PASS=password
 
 ```
+
+# Run
+```
+$ npm run watch
+$ npm start
+```
+
+By default this will start on port `8080` but you can define a different port in your .env file.
