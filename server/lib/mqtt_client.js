@@ -30,7 +30,7 @@ class MQTTClient {
     });
 
     let emitMessage = (message) => {
-      this.socket.emit('new mqtt event', message);
+      this.socket.emit('new mqtt event', JSON.stringify(message));
     }
 
     this.client.subscribe('#', { qos: 0 })
@@ -43,7 +43,7 @@ class MQTTClient {
           console.log(`Error: ${err}`);
         } else {
           console.log('[MQTT] Event Saved');
-          emitMessage(message);
+          emitMessage(mqttE);
         }
       });
       console.log(`[MQTT] ${topic}: ${message.toString()}`)
