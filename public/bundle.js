@@ -150,17 +150,6 @@
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default })
 	  )
 	), document.querySelector('#app'));
-	;
-
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(App, 'App', '/Users/jarrettgreen/code/riot-io/client/app.js');
-	}();
-
-	;
 
 /***/ },
 /* 5 */
@@ -27247,21 +27236,7 @@
 	  return NavBar;
 	}(_react.Component);
 
-	var _default = NavBar;
-	exports.default = _default;
-	;
-
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(NavBar, 'NavBar', '/Users/jarrettgreen/code/riot-io/client/components/nav_bar.js');
-
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/jarrettgreen/code/riot-io/client/components/nav_bar.js');
-	}();
-
-	;
+	exports.default = NavBar;
 
 /***/ },
 /* 240 */
@@ -27354,21 +27329,7 @@
 	  return MqttLogViewer;
 	}(_react.Component);
 
-	var _default = MqttLogViewer;
-	exports.default = _default;
-	;
-
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(MqttLogViewer, 'MqttLogViewer', '/Users/jarrettgreen/code/riot-io/client/containers/mqtt_log_viewer.js');
-
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/jarrettgreen/code/riot-io/client/containers/mqtt_log_viewer.js');
-	}();
-
-	;
+	exports.default = MqttLogViewer;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(241)))
 
 /***/ },
@@ -27446,21 +27407,7 @@
 	  );
 	};
 
-	var _default = MqttLog;
-	exports.default = _default;
-	;
-
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(MqttLog, 'MqttLog', '/Users/jarrettgreen/code/riot-io/client/components/mqtt_log.js');
-
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/jarrettgreen/code/riot-io/client/components/mqtt_log.js');
-	}();
-
-	;
+	exports.default = MqttLog;
 
 /***/ },
 /* 243 */
@@ -27519,21 +27466,7 @@
 	  );
 	};
 
-	var _default = MqttLogEvent;
-	exports.default = _default;
-	;
-
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(MqttLogEvent, 'MqttLogEvent', '/Users/jarrettgreen/code/riot-io/client/components/mqtt_log_event.js');
-
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/jarrettgreen/code/riot-io/client/components/mqtt_log_event.js');
-	}();
-
-	;
+	exports.default = MqttLogEvent;
 
 /***/ },
 /* 244 */
@@ -41995,21 +41928,7 @@
 	  return Home;
 	}(_react.Component);
 
-	var _default = Home;
-	exports.default = _default;
-	;
-
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(Home, 'Home', '/Users/jarrettgreen/code/riot-io/client/components/home.js');
-
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/jarrettgreen/code/riot-io/client/components/home.js');
-	}();
-
-	;
+	exports.default = Home;
 
 /***/ },
 /* 352 */
