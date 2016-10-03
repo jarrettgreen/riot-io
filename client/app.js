@@ -8,6 +8,9 @@ import Home from './components/home.js'
 require("!style!css!less!./stylesheets/application.less");
 
 class App extends Component {
+  componentDidMount() {
+    this.socket = io();
+  }
   render() {
     return (
       <div>
@@ -26,6 +29,6 @@ ReactDOM.render(
       <IndexRoute component={Home}/>
     </Route>
   </Router>,
-  
+
   document.querySelector('#app')
 );
