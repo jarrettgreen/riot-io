@@ -15,17 +15,20 @@ mongoose.connect(process.env.MONGO_DB_HOST, (error) => {
 });
 
 var port = process.env.PORT || 8080;
-var server = express();
+var app = express();
 
-server.use(bodyParser.urlencoded({ extended: true }));
-server.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-server.use('/api', require('./routes/mqtt_event.routes'));
-server.use(express.static('public'));
+app.use('/api', require('./routes/mqtt_event.routes'));
+app.use(express.static('public'));
 
 
-server.listen(port);
-
+const server = app.listen(port);
+var io = require('socket.io')(server);
+io.on('connection', function (socket) {
+  console.log('New client connected!');
+})
 
 console.log('\n\n\n');
 console.log('        ██████╗ ██╗ ██████╗ ████████╗');
@@ -38,6 +41,4 @@ console.log('        -----------------------------');
 console.log(`        FULL ON RIOT AT PORT ${port}!!!!`);
 console.log('\n\n\n');
 
-
-
-var mqttClient = new MQTTClient();
+var mqttClient = new MQTTClient(io);

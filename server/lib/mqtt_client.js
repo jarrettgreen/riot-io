@@ -2,8 +2,9 @@ import mqtt from 'mqtt'
 import mqttEvent from '../models/mqtt_event'
 
 class MQTTClient {
-  constructor() {
+  constructor(io) {
     this.host = process.env.MQTT_HOST
+    this.socket = io;
     this.options = {
       keepalive: 10,
       protocolId: 'MQTT',
@@ -21,21 +22,28 @@ class MQTTClient {
       password: process.env.MQTT_PASS,
       rejectUnauthorized: false
     }
+
     this.client = mqtt.connect(this.host, this.options)
 
     this.client.on('connect', function () {
       console.log(`[MQTT] Connected to ${process.env.MQTT_HOST}`)
     });
 
+    let emitMessage = (message) => {
+      this.socket.emit('new mqtt event', message);
+    }
+
     this.client.subscribe('#', { qos: 0 })
 
     this.client.on('message', function (topic, message, pakcet) {
       let mqttE = new mqttEvent( { topic, message } )
+
       mqttE.save(function (err) {
         if (err) {
           console.log(`Error: ${err}`);
         } else {
           console.log('[MQTT] Event Saved');
+          emitMessage(message);
         }
       });
       console.log(`[MQTT] ${topic}: ${message.toString()}`)

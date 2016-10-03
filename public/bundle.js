@@ -34691,7 +34691,7 @@
 /* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	/* WEBPACK VAR INJECTION */(function($, io) {'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -34747,13 +34747,19 @@
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      var that = this;
 	      this.fetchMqttLogEvents();
-	      var poller = setInterval(this.fetchMqttLogEvents, 1000);
+	      this.socket = io.connect('/');
+	      this.socket.on('new mqtt event', function (comments) {
+	        console.log('socket recieved');
+	        that.fetchMqttLogEvents();
+	      });
 	    }
 	  }, {
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
-	      clearInterval(poller);
+	      this.socket.close();
+	      // clearInterval(poller);
 	    }
 	  }, {
 	    key: 'render',
@@ -34779,7 +34785,7 @@
 	}(_react.Component);
 
 	exports.default = MqttLogViewer;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(290)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(290), __webpack_require__(5)))
 
 /***/ },
 /* 290 */

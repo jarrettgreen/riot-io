@@ -22,12 +22,18 @@ class MqttLogViewer extends Component {
 
 
   componentDidMount() {
+    var that = this;
     this.fetchMqttLogEvents();
-    var poller = setInterval(this.fetchMqttLogEvents,1000)
+    this.socket = io.connect('/');
+    this.socket.on('new mqtt event', function (comments) {
+      console.log('socket recieved')
+      that.fetchMqttLogEvents();
+		});
   }
 
   componentWillUnmount() {
-    clearInterval(poller);
+    this.socket.close();
+    // clearInterval(poller);
   }
 
   render() {
