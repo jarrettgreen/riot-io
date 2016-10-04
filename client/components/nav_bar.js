@@ -17,7 +17,7 @@ class NavBar extends Component {
           </div>
           <div className="collapse navbar-collapse" id="#main-nav">
           <ul className="nav navbar-nav">
-            <li><IndexLink to ="/" activeClassName="active"> Dashboard </IndexLink></li>
+            <li><IndexLink to ="/" activeClassName="active"> Dashboards </IndexLink></li>
             <li><IndexLink to ="/mqtt_logs" activeClassName="active"> MQTT Logs </IndexLink></li>
           </ul>
           </div>
