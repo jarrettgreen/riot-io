@@ -8,6 +8,9 @@ import Dashboards from './components/dashboards.js'
 require("!style!css!less!./stylesheets/application.less");
 
 class App extends Component {
+  componentDidMount() {
+    this.socket = io();
+  }
   render() {
     return (
       <div>

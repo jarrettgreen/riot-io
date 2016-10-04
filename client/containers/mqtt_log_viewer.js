@@ -3,7 +3,9 @@ import MqttLog from '../components/mqtt_log'
 class MqttLogViewer extends Component {
   constructor(props) {
     super(props);
-    this.state = {logEvents:[]};
+    this.state = {
+      logEvents:[]
+    };
     this.fetchMqttLogEvents = this.fetchMqttLogEvents.bind(this);
   }
 
@@ -22,12 +24,21 @@ class MqttLogViewer extends Component {
 
 
   componentDidMount() {
+
     this.fetchMqttLogEvents();
-    var poller = setInterval(this.fetchMqttLogEvents,1000)
+    this.socket = io.connect('/');
+    this.socket.on('new mqtt event', (message) => {
+      this.setState(
+        {
+          logEvents: [JSON.parse(message), ...this.state.logEvents]
+        }
+      );
+		});
   }
 
   componentWillUnmount() {
-    clearInterval(poller);
+    this.socket.close();
+    // clearInterval(poller);
   }
 
   render() {

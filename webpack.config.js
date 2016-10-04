@@ -12,6 +12,7 @@ module.exports = {
       new webpack.ProvidePlugin({
         '$': 'jquery',
         'jQuery': 'jquery',
+        'io': 'socket.io-client'
       }),
     ],
     output: {
