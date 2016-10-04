@@ -1,5 +1,7 @@
 import mqtt from 'mqtt'
 import mqttEvent from '../models/mqtt_event'
+import PrettyConsoleLogger from './prettyConsoleLogger'
+
 
 class MQTTClient {
   constructor(io) {
@@ -22,11 +24,11 @@ class MQTTClient {
       password: process.env.MQTT_PASS,
       rejectUnauthorized: false
     }
-
+    let logger = new PrettyConsoleLogger('MQTT', 'cyan')
     this.client = mqtt.connect(this.host, this.options)
 
     this.client.on('connect', function () {
-      console.log(`[MQTT] Connected to ${process.env.MQTT_HOST}`)
+      logger.log(`Connected to ${process.env.MQTT_HOST}`)
     });
 
     let emitMessage = (message) => {
@@ -40,13 +42,13 @@ class MQTTClient {
 
       mqttE.save(function (err) {
         if (err) {
-          console.log(`Error: ${err}`);
+          logger.log(`Error: ${err}`);
         } else {
-          console.log('[MQTT] Event Saved');
+          logger.log(`${topic}/ ${message.toString()}`)
           emitMessage(mqttE);
         }
       });
-      console.log(`[MQTT] ${topic}: ${message.toString()}`)
+
     })
   }
 }
