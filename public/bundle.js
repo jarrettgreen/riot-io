@@ -102,9 +102,9 @@
 
 	var _mqtt_log_viewer2 = _interopRequireDefault(_mqtt_log_viewer);
 
-	var _home = __webpack_require__(351);
+	var _dashboards = __webpack_require__(351);
 
-	var _home2 = _interopRequireDefault(_home);
+	var _dashboards2 = _interopRequireDefault(_dashboards);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -114,7 +114,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(400);
+	__webpack_require__(352);
 
 	var App = function (_Component) {
 	  _inherits(App, _Component);
@@ -147,7 +147,7 @@
 	    _reactRouter.Route,
 	    { path: '/', component: App },
 	    _react2.default.createElement(_reactRouter.Route, { path: 'mqtt_logs', component: _mqtt_log_viewer2.default }),
-	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default })
+	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _dashboards2.default })
 	  )
 	), document.querySelector('#app'));
 	;
@@ -27220,24 +27220,57 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'ul',
-	        { className: 'nav nav-tabs' },
+	        'nav',
+	        { className: 'navbar navbar-default navbar-inverse navbar-fixed-top' },
 	        _react2.default.createElement(
-	          'li',
-	          null,
+	          'div',
+	          { className: 'container' },
 	          _react2.default.createElement(
-	            _reactRouter.IndexLink,
-	            { to: '/', activeClassName: 'active' },
-	            ' Home '
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'li',
-	          null,
+	            'div',
+	            { className: 'navbar-header' },
+	            _react2.default.createElement(
+	              'button',
+	              { type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#main-nav', 'aria-expanded': 'false' },
+	              _react2.default.createElement(
+	                'span',
+	                { className: 'sr-only' },
+	                'Toggle navigation'
+	              ),
+	              _react2.default.createElement('span', { className: 'icon-bar' }),
+	              _react2.default.createElement('span', { className: 'icon-bar' }),
+	              _react2.default.createElement('span', { className: 'icon-bar' })
+	            ),
+	            _react2.default.createElement(
+	              'a',
+	              { className: 'navbar-brand', href: '#' },
+	              'RIOT'
+	            )
+	          ),
 	          _react2.default.createElement(
-	            _reactRouter.IndexLink,
-	            { to: '/mqtt_logs', activeClassName: 'active' },
-	            ' MQTT Logs '
+	            'div',
+	            { className: 'collapse navbar-collapse', id: '#main-nav' },
+	            _react2.default.createElement(
+	              'ul',
+	              { className: 'nav navbar-nav' },
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  _reactRouter.IndexLink,
+	                  { to: '/', activeClassName: 'active' },
+	                  ' Dashboard '
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  _reactRouter.IndexLink,
+	                  { to: '/mqtt_logs', activeClassName: 'active' },
+	                  ' MQTT Logs '
+	                )
+	              )
+	            )
 	          )
 	        )
 	      );
@@ -41972,30 +42005,30 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Home = function (_Component) {
-	  _inherits(Home, _Component);
+	var Dashboards = function (_Component) {
+	  _inherits(Dashboards, _Component);
 
-	  function Home() {
-	    _classCallCheck(this, Home);
+	  function Dashboards() {
+	    _classCallCheck(this, Dashboards);
 
-	    return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Dashboards.__proto__ || Object.getPrototypeOf(Dashboards)).apply(this, arguments));
 	  }
 
-	  _createClass(Home, [{
+	  _createClass(Dashboards, [{
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'h1',
 	        null,
-	        ' Welcome to Riot! '
+	        'Dashboards'
 	      );
 	    }
 	  }]);
 
-	  return Home;
+	  return Dashboards;
 	}(_react.Component);
 
-	var _default = Home;
+	var _default = Dashboards;
 	exports.default = _default;
 	;
 
@@ -42004,72 +42037,24 @@
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(Home, 'Home', '/Users/jarrettgreen/code/riot-io/client/components/home.js');
+	  __REACT_HOT_LOADER__.register(Dashboards, 'Dashboards', '/Users/jarrettgreen/code/riot-io/client/components/dashboards.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/jarrettgreen/code/riot-io/client/components/home.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/jarrettgreen/code/riot-io/client/components/dashboards.js');
 	}();
 
 	;
 
 /***/ },
-/* 352 */,
-/* 353 */,
-/* 354 */,
-/* 355 */,
-/* 356 */,
-/* 357 */,
-/* 358 */,
-/* 359 */,
-/* 360 */,
-/* 361 */,
-/* 362 */,
-/* 363 */,
-/* 364 */,
-/* 365 */,
-/* 366 */,
-/* 367 */,
-/* 368 */,
-/* 369 */,
-/* 370 */,
-/* 371 */,
-/* 372 */,
-/* 373 */,
-/* 374 */,
-/* 375 */,
-/* 376 */,
-/* 377 */,
-/* 378 */,
-/* 379 */,
-/* 380 */,
-/* 381 */,
-/* 382 */,
-/* 383 */,
-/* 384 */,
-/* 385 */,
-/* 386 */,
-/* 387 */,
-/* 388 */,
-/* 389 */,
-/* 390 */,
-/* 391 */,
-/* 392 */,
-/* 393 */,
-/* 394 */,
-/* 395 */,
-/* 396 */,
-/* 397 */,
-/* 398 */,
-/* 399 */,
-/* 400 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(401);
+	var content = __webpack_require__(353);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(403)(content, {});
+	var update = __webpack_require__(355)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -42086,21 +42071,21 @@
 	}
 
 /***/ },
-/* 401 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(402)();
+	exports = module.exports = __webpack_require__(354)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "body {\n  background-color: #282c34;\n  color: #abb2bf;\n}\nbody .mqtt-log-container {\n  margin-top: 40px;\n}\nbody .mqtt-log-container td {\n  border-top: 1px solid #3e4451 !important;\n}\nbody .mqtt-log-container .mqtt-log-item {\n  font-family: monospace;\n}\nbody .mqtt-log-container .mqtt-log-item .timestamp {\n  white-space: nowrap;\n}\nbody .mqtt-log-container .mqtt-log-item .topic {\n  font-size: 1.1em;\n}\nbody .mqtt-log-container .mqtt-log-item .message {\n  width: 100%;\n  font-family: monospace;\n  color: #fff;\n}\n", ""]);
+	exports.push([module.id, "body {\n  background-color: #282c34;\n  color: #abb2bf;\n  padding-top: 70px;\n}\nbody .mqtt-log-container {\n  margin-top: 40px;\n}\nbody .mqtt-log-container td {\n  border-top: 1px solid #3e4451 !important;\n}\nbody .mqtt-log-container .mqtt-log-item {\n  font-family: monospace;\n}\nbody .mqtt-log-container .mqtt-log-item .timestamp {\n  white-space: nowrap;\n}\nbody .mqtt-log-container .mqtt-log-item .topic {\n  font-size: 1.1em;\n}\nbody .mqtt-log-container .mqtt-log-item .message {\n  width: 100%;\n  font-family: monospace;\n  color: #fff;\n}\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 402 */
+/* 354 */
 /***/ function(module, exports) {
 
 	/*
@@ -42156,7 +42141,7 @@
 
 
 /***/ },
-/* 403 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

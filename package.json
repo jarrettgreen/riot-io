@@ -4,9 +4,11 @@
   "description": "React Internet of Things Dashboard & Controller",
   "main": "./server/server.js",
   "scripts": {
-    "start": "nodemon ./server/server.js --exec babel-node --presets es2015 && webpack -w",
+    "build": "webpack --display-chunks --progress",
+    "start": "nodemon ./server/server.js --exec babel-node --presets es2015",
     "start:webpack": "webpack-dev-server --hot --inline",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npm run build -- --display-modules --watch"
   },
   "author": "Jarrett Green",
   "license": "ISC",
