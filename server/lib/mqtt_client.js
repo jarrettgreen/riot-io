@@ -1,7 +1,7 @@
 import mqtt from 'mqtt'
-import mqttEvent from '../models/mqtt_event'
+import MqttEvent from '../models/mqtt_event.model'
 import PrettyConsoleLogger from './prettyConsoleLogger'
-
+import cuid from 'cuid';
 
 class MQTTClient {
   constructor(io) {
@@ -38,14 +38,15 @@ class MQTTClient {
     this.client.subscribe('#', { qos: 0 })
 
     this.client.on('message', function (topic, message, pakcet) {
-      let mqttE = new mqttEvent( { topic, message } )
+      const newMqttEvent = new MqttEvent( { topic, message } )
+      newMqttEvent.cuid = cuid();
 
-      mqttE.save(function (err) {
+      newMqttEvent.save(function (err) {
         if (err) {
           logger.log(`Error: ${err}`);
         } else {
           logger.log(`${topic}/ ${message.toString()}`)
-          emitMessage(mqttE);
+          emitMessage(newMqttEvent);
         }
       });
 

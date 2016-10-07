@@ -1,6 +1,6 @@
-import MqttEvent from '../models/mqtt_event';
+import MqttEvent from '../models/mqtt_event.model';
 import sanitizeHtml from 'sanitize-html';
-
+import cuid from 'cuid';
 /**
  * Get all MqttEvents
  * @param req
