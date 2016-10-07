@@ -1,5 +1,5 @@
 import mqtt from 'mqtt'
-import MqttEvent from '../models/mqtt_event.model'
+import MqttEvent from '../models/MqttEvent.model'
 import PrettyConsoleLogger from './prettyConsoleLogger'
 import cuid from 'cuid';
 

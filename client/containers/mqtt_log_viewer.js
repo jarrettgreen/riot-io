@@ -11,7 +11,7 @@ class MqttLogViewer extends Component {
 
   fetchMqttLogEvents() {
     $.ajax({
-      url: '/api/mqtt_events',
+      url: '/api/v1/mqtt_events',
       dataType: 'json',
       success: (data) => {
         this.setState({logEvents: data});

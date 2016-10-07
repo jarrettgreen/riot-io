@@ -1,4 +1,4 @@
-import MqttEvent from '../models/mqtt_event.model';
+import MqttEvent from '../models/MqttEvent.model';
 import sanitizeHtml from 'sanitize-html';
 import cuid from 'cuid';
 /**

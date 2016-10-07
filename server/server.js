@@ -19,8 +19,7 @@ var app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-app.use('/api', require('./routes/mqtt_event.routes'));
+app.use('/api', require('./routes/api_v1.routes'));
 app.use(express.static('public'));
 
 
