@@ -17,7 +17,7 @@ class MqttLogViewer extends Component {
         this.setState({logEvents: data});
       },
       error: (xhr, status, err) => {
-      console.error('/api/mqtt_events', status, err.toString());
+      console.error('/api/v1/mqtt_events', status, err.toString());
       }
   });
 }

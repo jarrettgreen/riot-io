@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Route, Router, IndexRoute, hashHistory} from 'react-router'
 import NavBar from './components/nav_bar.js'
 import MqttLogViewer from './containers/mqtt_log_viewer'
-import Dashboards from './components/dashboards.js'
+import DashboardList from './containers/DashboardList.container'
 
 require("!style!css!less!./stylesheets/application.less");
 
@@ -25,7 +25,8 @@ ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <Route path="mqtt_logs" component={MqttLogViewer}/>
-      <IndexRoute component={Dashboards}/>
+      <Route path="/dashboards" component={DashboardList}/>
+
     </Route>
   </Router>,
 
