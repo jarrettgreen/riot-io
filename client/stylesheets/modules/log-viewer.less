@@ -1,0 +1,29 @@
+.mqtt-log-container {
+
+    td{
+      border-top: 1px solid lighten(@background-color, 10%) !important;
+    }
+
+
+  margin-top:40px;
+
+
+  .mqtt-log-item {
+    font-family: 'Inconsolata', monospace;
+    font-weight: 400;
+    .timestamp {
+       white-space: nowrap;
+     }
+      .topic, .message{
+        font-weight: 700;
+      }
+     .topic {
+        font-size: 1.1em;
+     }
+     .message{
+       width: 100%;
+       color: #fff;
+
+     }
+  }
+}
