@@ -7,10 +7,10 @@ class AddDashboard extends Component {
 
   render() {
     return(
-      <div className="{this.props.display == true? '' : 'hidden'}">
+      <div className="{this.props.display == false ? '' : 'hidden'}">
         <h2>New Dashboard</h2>
-        <input placeholder={this.props.intl.messages.authorName} className={styles['form-field']} ref="title" />
-        <a className={styles['post-submit-button']} href="#" onClick={this.addPost}><FormattedMessage id="submit" /></a>
+        <input ref="title" />
+        <a href="#" onClick={this.addDashboard}>Create Dashboard</a>
       </div>
     )
   }

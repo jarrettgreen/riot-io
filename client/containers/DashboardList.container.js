@@ -12,14 +12,14 @@ class DashboardList extends Component {
   }
 
   toggleNewDashboard(tf) {
-    this.setState({newDashboard: true})
+    this.props.newDasboard = true
   }
   render() {
     return(
       <div>
         <h1>Dashbaords </h1>
-        <AddDashboard display={this.newDashboard()}/>
-        <a onClick={toggleNewDashboard(true)}> new dashboard </a>
+        <AddDashboard display={this.props.newDashboard}/>
+        <a onClick={this.toggleNewDashboard()}> new dashboard </a>
       </div>
     )
   }
