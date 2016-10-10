@@ -7,10 +7,10 @@ class AddDashboard extends Component {
 
   render() {
     return(
-      <div className="{this.props.display == false ? '' : 'hidden'}">
+      <div className={this.props.display == false ? 'hide' : ''}>
         <h2>New Dashboard</h2>
         <input ref="title" />
-        <a href="#" onClick={this.addDashboard}>Create Dashboard</a>
+        {/* <a href="#" onClick={this.addDashboard}>Create Dashboard</a> */}
       </div>
     )
   }

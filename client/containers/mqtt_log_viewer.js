@@ -10,7 +10,7 @@ class MqttLogViewer extends Component {
   }
 
 
-  componentDidMount() {
+  componentWillMount() {
 
     callApi('mqtt_events')
       .then(res => {
