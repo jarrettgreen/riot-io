@@ -20,12 +20,16 @@ class DashboardList extends Component {
       this.setState({newDashboard: true})
     }
   }
-  componentDidMount() {
+
+  fetchDashboards = () => {
     callApi('dashboards')
       .then(res => {
         this.setState({dashboards: res});
       }
     );
+  }
+  componentWillMount() {
+    this.fetchDashboards();
   }
 
   render() {
