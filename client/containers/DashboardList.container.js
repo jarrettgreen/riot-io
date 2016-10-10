@@ -34,15 +34,13 @@ class DashboardList extends Component {
         <h1>Dashboards</h1>
         <AddDashboard display={this.state.newDashboard}/>
         <a onClick={() => this.toggleNewDashboard()}> new dashboard </a>
-          {() => {
-            this.props.dashboards.map(dashboard => (
+          {this.state.dashboards.map(dashboard => (
               <DashboardListItem
                 dashboard={dashboard}
-                key={dashboard.id}
+                key={dashboard._id}
                 //  onDelete={() => props.handleDeletePost(post.cuid)}
               />
-            ))
-          }}
+            ))}
 
       </div>
     )

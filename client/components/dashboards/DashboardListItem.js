@@ -3,9 +3,7 @@ import moment from 'moment';
 
 function DashboardListItem(props) {
   return (
-    <tr className="mqtt-log-item">
-      <td className="message">{this.props.dashboard.title}</td>
-    </tr>
+    <div> {props.dashboard.title} </div>
   )
 }
 
