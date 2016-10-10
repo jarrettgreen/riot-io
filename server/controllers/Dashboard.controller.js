@@ -28,7 +28,7 @@ export function addDashboard(req, res) {
     if (err) {
       res.status(500).send(err);
     }
-    res.json({ post: saved });
+    res.json({ dashboard: saved });
   });
 }
 
