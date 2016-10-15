@@ -1,6 +1,6 @@
 import React from 'react';
 import MqttLogEvent from './mqtt_log_event'
-
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 const MqttLog = (props) => {
   const logEvents = props.logEvents.map((entry) => {
     return (
@@ -15,19 +15,19 @@ const MqttLog = (props) => {
 
 
   return (
-    <table className="table log-events-table">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Time</th>
-          <th>Topic</th>
-          <th>Message</th>
-        </tr>
-      </thead>
-      <tbody>
+    <Table className="table log-events-table">
+      <TableHeader>
+        <TableRow>
+          <TableHeaderColumn>Date</TableHeaderColumn>
+          <TableHeaderColumn>Time</TableHeaderColumn>
+          <TableHeaderColumn>Topic</TableHeaderColumn>
+          <TableHeaderColumn>Message</TableHeaderColumn>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
       {logEvents}
-      </tbody>
-    </table>
+      </TableBody>
+    </Table>
   )
 }
 

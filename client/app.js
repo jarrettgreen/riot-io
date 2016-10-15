@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {Route, Router, IndexRoute, hashHistory} from 'react-router'
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
+
 import NavBar from './components/nav_bar.js'
 import MqttLogViewer from './containers/mqtt_log_viewer'
 import DashboardList from './containers/DashboardList.container'
@@ -22,13 +31,15 @@ class App extends Component {
 }
 
 ReactDOM.render(
-  <Router history={hashHistory}>
-    <Route path="/" component={App}>
-      <Route path="mqtt_logs" component={MqttLogViewer}/>
-      <Route path="/dashboards" component={DashboardList}/>
+  <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+    <Router history={hashHistory}>
+      <Route path="/" component={App}>
+        <Route path="mqtt_logs" component={MqttLogViewer}/>
+        <Route path="/dashboards" component={DashboardList}/>
 
-    </Route>
-  </Router>,
+      </Route>
+    </Router>
+  </MuiThemeProvider>,
 
   document.querySelector('#app')
 );

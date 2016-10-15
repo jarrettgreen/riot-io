@@ -1,9 +1,13 @@
 import React from 'react';
 import moment from 'moment';
+import Paper from 'material-ui/Paper';
+
 
 function DashboardListItem(props) {
   return (
-    <div> {props.dashboard.title} </div>
+    <Paper>
+      <h3>{props.dashboard.title}</h3>
+    </Paper>
   )
 }
 

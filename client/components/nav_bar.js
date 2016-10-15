@@ -1,29 +1,37 @@
 import React, {Component} from 'react'
 import {Link, IndexLink} from 'react-router'
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
+import FlatButton from 'material-ui/FlatButton';
+import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 
 class NavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {open: false};
+  }
+  handleToggle = () => this.setState({open: !this.state.open});
+
+  handleClose = () => this.setState({open: false});
+
   render() {
-    return(
-      <nav className="navbar navbar-default navbar-inverse navbar-fixed-top">
-        <div className="container">
-          <div className="navbar-header">
-            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
-              <span className="sr-only">Toggle navigation</span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-            </button>
-            <a className="navbar-brand" href="#">RIOT</a>
-          </div>
-          <div className="collapse navbar-collapse" id="#main-nav">
-          <ul className="nav navbar-nav">
-            <li><IndexLink to ="/dashboards" activeClassName="active"> Dashboards </IndexLink></li>
-            <li><IndexLink to ="/mqtt_logs" activeClassName="active"> MQTT Logs </IndexLink></li>
-          </ul>
-          </div>
-        </div>
-      </nav>
-    )
+    return (
+      <div>
+        <FlatButton
+          icon={<NavigationMenu />}
+          onTouchTap={this.handleToggle}
+        />
+        <Drawer
+          docked={false}
+          width={200}
+          open={this.state.open}
+          onRequestChange={(open) => this.setState({open})}
+        >
+          <MenuItem><IndexLink to ="/dashboards" activeClassName="active"> Dashboards </IndexLink></MenuItem>
+          <MenuItem><IndexLink to ="/mqtt_logs" activeClassName="active"> MQTT Logs </IndexLink></MenuItem>
+        </Drawer>
+      </div>
+    );
   }
 }
 

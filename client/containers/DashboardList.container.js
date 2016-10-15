@@ -9,16 +9,12 @@ class DashboardList extends Component {
     super(props);
     this.state = {
       dashboards: [],
-      newDashboard: false,
+      newDashboardDialogOpen: false,
       currentDashboard: ''
     };
   }
-  toggleNewDashboard = () =>{
-    if (this.state.newDashboard == true) {
-      this.setState({newDashboard: false})
-    } else {
-      this.setState({newDashboard: true})
-    }
+  toggleNewDashboardDialog = () =>{
+    this.setState({newDashboardDialogOpen: !this.state.newDashboardDialogOpen})
   }
 
   fetchDashboards = () => {
@@ -36,15 +32,14 @@ class DashboardList extends Component {
     return(
       <div>
         <h1>Dashboards</h1>
-        <AddDashboard display={this.state.newDashboard}/>
-        <a onClick={() => this.toggleNewDashboard()}> new dashboard </a>
-          {this.state.dashboards.map(dashboard => (
-              <DashboardListItem
-                dashboard={dashboard}
-                key={dashboard._id}
-                //  onDelete={() => props.handleDeletePost(post.cuid)}
-              />
-            ))}
+        <AddDashboard open={this.state.newDashboardDialogOpen}/>
+        {this.state.dashboards.map(dashboard => (
+            <DashboardListItem
+              dashboard={dashboard}
+              key={dashboard._id}
+              //  onDelete={() => props.handleDeletePost(post.cuid)}
+            />
+          ))}
 
       </div>
     )
