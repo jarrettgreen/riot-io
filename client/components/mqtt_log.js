@@ -15,8 +15,11 @@ const MqttLog = (props) => {
 
 
   return (
-    <Table className="table log-events-table">
-      <TableHeader>
+    <Table className="log-events-table" displaySelectAll={false}>
+      <TableHeader
+        displaySelectAll={false}
+        adjustForCheckbox={false}
+        enableSelectAll={false}>
         <TableRow>
           <TableHeaderColumn>Date</TableHeaderColumn>
           <TableHeaderColumn>Time</TableHeaderColumn>

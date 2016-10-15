@@ -31,7 +31,8 @@ class App extends Component {
 }
 
 ReactDOM.render(
-  <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+  // <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+  <MuiThemeProvider>
     <Router history={hashHistory}>
       <Route path="/" component={App}>
         <Route path="mqtt_logs" component={MqttLogViewer}/>

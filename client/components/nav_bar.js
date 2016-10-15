@@ -5,6 +5,7 @@ import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 
+
 class NavBar extends Component {
   constructor(props) {
     super(props);
@@ -27,8 +28,14 @@ class NavBar extends Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-          <MenuItem><IndexLink to ="/dashboards" activeClassName="active"> Dashboards </IndexLink></MenuItem>
-          <MenuItem><IndexLink to ="/mqtt_logs" activeClassName="active"> MQTT Logs </IndexLink></MenuItem>
+          <MenuItem
+            containerElement={<IndexLink to="/dashboards"/>}
+            primaryText="Dashboards"
+            onTouchTap={this.handleClose}/>
+          <MenuItem
+            containerElement={<IndexLink to="/mqtt_logs"/>}
+            primaryText="MQTT Logs"
+            onTouchTap={this.handleClose}/>
         </Drawer>
       </div>
     );
