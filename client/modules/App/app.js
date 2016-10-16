@@ -8,6 +8,10 @@ import DashboardList from '../../containers/DashboardList.container'
 require("!style!css!less!../../stylesheets/application.less");
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
     this.socket = io();
   }
