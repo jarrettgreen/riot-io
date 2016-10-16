@@ -1,33 +1,27 @@
 import React, {Component} from 'react'
+import { connect } from 'react-redux';
+
+import { addDashboard, fetchDashboards } from '../modules/Dashboard/DashboardActions';
+import { getDashboards } from '../modules/Dashboard/DashboardReducer';
+
 import NewDashboard from '../components/dashboards/NewDashboard'
 import DashboardListItem from '../components/dashboards/DashboardListItem'
 import callApi from '../util/apiCaller';
 
 
 class DashboardList extends Component {
+  componentDidMount() {
+    this.props.dispatch(fetchDashboards());
+  }
   constructor(props) {
     super(props);
     this.state = {
-      dashboards: [],
       newDashboardDialogOpen: false,
-      currentDashboard: ''
     };
   }
   toggleNewDashboardDialog = () =>{
     this.setState({newDashboardDialogOpen: !this.state.newDashboardDialogOpen})
   }
-
-  fetchDashboards = () => {
-    callApi('dashboards')
-      .then(res => {
-        this.setState({dashboards: res});
-      }
-    );
-  }
-  componentWillMount() {
-    this.fetchDashboards();
-  }
-
   render() {
     return(
       <div>
@@ -35,11 +29,10 @@ class DashboardList extends Component {
 
         <div className="row">
           <NewDashboard showModal={this.state.newDashboardDialogOpen}/>
-          {this.state.dashboards.map(dashboard => (
+          {this.props.dashboards.map(dashboard => (
               <DashboardListItem
                 dashboard={dashboard}
                 key={dashboard._id}
-                //  onDelete={() => props.handleDeletePost(post.cuid)}
               />
             ))}
         </div>
@@ -48,4 +41,12 @@ class DashboardList extends Component {
   }
 }
 
-export default DashboardList
+// Retrieve data from store as props
+function mapStateToProps(state) {
+  return {
+    addDashboard: addDashboard(state),
+    dashboards: getDashboards(state)
+  };
+}
+
+export default connect(mapStateToProps)(DashboardList);
