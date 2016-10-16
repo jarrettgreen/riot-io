@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import AddDashboard from '../components/dashboards/AddDashboard'
+import NewDashboard from '../components/dashboards/NewDashboard'
 import DashboardListItem from '../components/dashboards/DashboardListItem'
 import callApi from '../util/apiCaller';
 
@@ -31,16 +31,18 @@ class DashboardList extends Component {
   render() {
     return(
       <div>
-        <h1>Dashboards</h1>
-        <AddDashboard open={this.state.newDashboardDialogOpen}/>
-        {this.state.dashboards.map(dashboard => (
-            <DashboardListItem
-              dashboard={dashboard}
-              key={dashboard._id}
-              //  onDelete={() => props.handleDeletePost(post.cuid)}
-            />
-          ))}
+        <h1 className="page-title">Dashboards</h1>
 
+        <div className="row">
+          <NewDashboard showModal={this.state.newDashboardDialogOpen}/>
+          {this.state.dashboards.map(dashboard => (
+              <DashboardListItem
+                dashboard={dashboard}
+                key={dashboard._id}
+                //  onDelete={() => props.handleDeletePost(post.cuid)}
+              />
+            ))}
+        </div>
       </div>
     )
   }

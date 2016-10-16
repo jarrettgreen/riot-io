@@ -20,7 +20,7 @@ class NavBar extends Component {
       <div>
         <FlatButton
           icon={<NavigationMenu />}
-          onTouchTap={this.handleToggle}
+          onClick={this.handleToggle}
         />
         <Drawer
           docked={false}
@@ -31,11 +31,11 @@ class NavBar extends Component {
           <MenuItem
             containerElement={<IndexLink to="/dashboards"/>}
             primaryText="Dashboards"
-            onTouchTap={this.handleClose}/>
+            onClick={this.handleClose}/>
           <MenuItem
             containerElement={<IndexLink to="/mqtt_logs"/>}
             primaryText="MQTT Logs"
-            onTouchTap={this.handleClose}/>
+            onClick={this.handleClose}/>
         </Drawer>
       </div>
     );
