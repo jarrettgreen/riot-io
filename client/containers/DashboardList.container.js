@@ -26,7 +26,6 @@ class DashboardList extends Component {
     return(
       <div>
         <h1 className="page-title">Dashboards</h1>
-
         <div className="row">
           <NewDashboard showModal={this.state.newDashboardDialogOpen}/>
           {this.props.dashboards.map(dashboard => (
