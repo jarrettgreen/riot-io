@@ -1,31 +1,22 @@
 import React, {Component} from 'react'
 import MqttLog from '../components/mqtt_log'
+import callApi from '../util/apiCaller';
 class MqttLogViewer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       logEvents:[]
     };
-    this.fetchMqttLogEvents = this.fetchMqttLogEvents.bind(this);
   }
 
-  fetchMqttLogEvents() {
-    $.ajax({
-      url: '/api/mqtt_events',
-      dataType: 'json',
-      success: (data) => {
-        this.setState({logEvents: data});
-      },
-      error: (xhr, status, err) => {
-      console.error('/api/mqtt_events', status, err.toString());
+
+  componentWillMount() {
+
+    callApi('mqtt_events')
+      .then(res => {
+        this.setState({logEvents: res});
       }
-  });
-}
-
-
-  componentDidMount() {
-
-    this.fetchMqttLogEvents();
+    );
     this.socket = io.connect('/');
     this.socket.on('new mqtt event', (message) => {
       this.setState(
@@ -38,7 +29,6 @@ class MqttLogViewer extends Component {
 
   componentWillUnmount() {
     this.socket.close();
-    // clearInterval(poller);
   }
 
   render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import MqttLogEvent from './mqtt_log_event'
-
+import { Table } from 'react-bootstrap'
 const MqttLog = (props) => {
   const logEvents = props.logEvents.map((entry) => {
     return (
@@ -15,7 +15,7 @@ const MqttLog = (props) => {
 
 
   return (
-    <table className="table log-events-table">
+    <Table className="log-events-table">
       <thead>
         <tr>
           <th>Date</th>
@@ -27,7 +27,7 @@ const MqttLog = (props) => {
       <tbody>
       {logEvents}
       </tbody>
-    </table>
+    </Table>
   )
 }
 

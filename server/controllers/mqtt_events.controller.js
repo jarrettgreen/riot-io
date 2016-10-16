@@ -1,14 +1,9 @@
-import MqttEvent from '../models/mqtt_event';
+import MqttEvent from '../models/MqttEvent.model';
 import sanitizeHtml from 'sanitize-html';
+import cuid from 'cuid';
 
-/**
- * Get all MqttEvents
- * @param req
- * @param res
- * @returns void
- */
 export function getMqttEvents(req, res) {
-  MqttEvent.find().sort({ created: 'desc'}).exec((err, mqtt_events) => {
+  MqttEvent.find().sort({ created: 'desc'}).limit(20).exec((err, mqtt_events) => {
     if (err) {
       res.status(500).send(err);
     }
