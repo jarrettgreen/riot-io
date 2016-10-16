@@ -36,11 +36,10 @@ class NewDashboard extends Component {
     return(
       <div>
         <div className="col-xs-12 col-md-3">
-          <div className="well">
             <Button bsStyle="success" onClick={this.toggleModal}>
               New Dashboard
             </Button>
-          </div>
+
         </div>
         <Modal show={this.state.showModal} onHide={this.toggleModal}>
           <Modal.Header closeButton>
