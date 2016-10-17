@@ -31,7 +31,7 @@ export function addDashboards(dashboards) {
 export function fetchDashboards() {
   return (dispatch) => {
     return callApi('dashboards').then(res => {
-      dispatch(addDashboards(res.dashboards));
+      dispatch(addDashboards(res));  //  NOT dispatch(addDashboards(res.dashboards));
     });
   };
 }

@@ -9,11 +9,14 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppContainer from './appContainer';
 import reducers from './reducers';
 import routes from './routes';
+import { configureStore } from './store';
 
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+// Initialize store
+const store = configureStore(window.__INITIAL_STATE__);
+
 
 ReactDOM.render(
   <MuiThemeProvider>
-    <AppContainer store={createStoreWithMiddleware(reducers)} />
+    <AppContainer store={store} />
   </MuiThemeProvider>
   , document.getElementById('root'));
