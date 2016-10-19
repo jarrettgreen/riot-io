@@ -8,11 +8,11 @@ const DashboardReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_DASHBOARD :
       return {
-        data: [action.dashboard, ...state.data],
+        data: [action.dashboard, ...state.data]
       };
     case ADD_DASHBOARDS :
       return {
-        data: action.dashboards,
+        data: action.dashboards
       };
     default:
       return state;
@@ -21,6 +21,9 @@ const DashboardReducer = (state = initialState, action) => {
 
 // Get all dashboards
 export const getDashboards = state => state.dashboards.data;
+
+// Get dashboard from store by id
+export const getDashboard = (state, id) => state.dashboards.data.filter(dashboard => dashboard._id === id)[0];
 
 // Export Reducer
 export default DashboardReducer;

@@ -29,11 +29,11 @@ class NavBar extends Component {
           onRequestChange={(open) => this.setState({open})}
         >
           <MenuItem
-            containerElement={<IndexLink to="/dashboards"/>}
+            containerElement={<IndexLink to="/"/>}
             primaryText="Dashboards"
             onClick={this.handleClose}/>
           <MenuItem
-            containerElement={<IndexLink to="/mqtt_logs"/>}
+            containerElement={<Link to="/mqtt_logs"/>}
             primaryText="MQTT Logs"
             onClick={this.handleClose}/>
         </Drawer>
