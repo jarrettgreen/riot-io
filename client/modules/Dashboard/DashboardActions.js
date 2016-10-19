@@ -12,7 +12,7 @@ export function addDashboard(dashboard) {
 
 export function addDashboardRequest(dashboard) {
   return (dispatch) => {
-    return callApi('dashboards', 'dashboard', {
+    return callApi('dashboards', 'post', {
       dashboard: {
         title: dashboard.title
       },
@@ -34,4 +34,10 @@ export function fetchDashboards() {
       dispatch(addDashboards(res));  //  NOT dispatch(addDashboards(res.dashboards));
     });
   };
+}
+
+export function fetchDashboard(id) {
+  return (dispatch) => {
+    return callApi(`dashboards/${id}`).then(res => dispatch(addDashboard(res)))
+  }
 }

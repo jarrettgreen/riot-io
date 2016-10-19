@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
 
-import { addDashboard, fetchDashboards } from '../modules/Dashboard/DashboardActions';
-import { getDashboards } from '../modules/Dashboard/DashboardReducer';
+import { addDashboard, fetchDashboards } from '../DashboardActions';
+import { getDashboards } from '../DashboardReducer';
 
-import NewDashboard from '../components/dashboards/NewDashboard'
-import DashboardListItem from '../components/dashboards/DashboardListItem'
-import callApi from '../util/apiCaller';
+import NewDashboard from '../components/NewDashboard'
+import DashboardListItem from '../components/DashboardListItem'
+import callApi from '../../../util/apiCaller';
 
 
 class DashboardList extends Component {

@@ -3,7 +3,7 @@ import Dialog from 'material-ui/Dialog';
 import { Modal, Button, FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
 import TextField from 'material-ui/TextField';
 
-import callApi from '../../util/apiCaller';
+import callApi from '../../../util/apiCaller';
 
 class NewDashboard extends Component {
   constructor(props) {

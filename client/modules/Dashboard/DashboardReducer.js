@@ -22,5 +22,8 @@ const DashboardReducer = (state = initialState, action) => {
 // Get all dashboards
 export const getDashboards = state => state.dashboards.data;
 
+// Get post by cuid
+export const getDashboard = (state, id) => state.dashboards.data.filter(dashboard => dashboard._id === id)[0];
+
 // Export Reducer
 export default DashboardReducer;

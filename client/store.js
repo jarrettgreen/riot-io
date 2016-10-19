@@ -2,6 +2,7 @@
  * Main store function
  */
 import { createStore, applyMiddleware, compose } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 
@@ -11,7 +12,7 @@ export function configureStore(initialState = {}) {
     applyMiddleware(thunk),
   ];
 
-  const store = createStore(rootReducer, initialState, compose(...enhancers));
+  const store = createStore(rootReducer, initialState, composeWithDevTools(...enhancers));
 
   return store;
 }
