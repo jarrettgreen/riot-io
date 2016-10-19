@@ -10,12 +10,14 @@ import { fetchDashboard } from '../DashboardActions';
 import { getDashboard } from '../DashboardReducer';
 
 class DashboardView extends Component {
+  componentWillMount() {
+    this.props.dispatch(fetchDashboard(this.props.params.id));
+  }
+
   constructor(props) {
     super(props);
   }
-  componentDidMount() {
-    this.props.dispatch(fetchDashboard(this.props.params.id));
-  }
+
   render() {
     return (
       <h1>{this.props.dashboard.title}</h1>

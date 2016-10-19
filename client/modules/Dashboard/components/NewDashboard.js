@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import Dialog from 'material-ui/Dialog';
 import { Modal, Button, FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
-import TextField from 'material-ui/TextField';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux'
 
-import callApi from '../../../util/apiCaller';
+import { persistAndAddDashboard } from '../DashboardActions';
 
 class NewDashboard extends Component {
   constructor(props) {
@@ -25,11 +25,14 @@ class NewDashboard extends Component {
   };
 
   submitForm = () => {
-    callApi('dashboards', 'post', {
-      dashboard: {
-        title: this.state.new_dashboard_title,
-      }
-    }).then(this.toggleDialog);
+    const newTitle = this.state.new_dashboard_title
+    this.props.dispatch(persistAndAddDashboard({ title: newTitle }))
+    this.toggleModal();
+    // callApi('dashboards', 'post', {
+    //   dashboard: {
+    //     title: this.state.new_dashboard_title,
+    //   }
+    // }).then(this.toggleDialog);
   };
 
   render() {
@@ -61,4 +64,7 @@ class NewDashboard extends Component {
   }
 }
 
-export default NewDashboard
+function mapDispatchToProps(dispatch) {
+  return { actions: bindActionCreators(persistAndAddDashboard, dispatch) }
+}
+export default connect(mapDispatchToProps)(NewDashboard)

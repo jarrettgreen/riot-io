@@ -10,7 +10,7 @@ export function addDashboard(dashboard) {
   };
 }
 
-export function addDashboardRequest(dashboard) {
+export function persistAndAddDashboard(dashboard) {
   return (dispatch) => {
     return callApi('dashboards', 'post', {
       dashboard: {
@@ -38,6 +38,6 @@ export function fetchDashboards() {
 
 export function fetchDashboard(id) {
   return (dispatch) => {
-    return callApi(`dashboards/${id}`).then(res => dispatch(addDashboard(res)))
+    return callApi(`dashboards/${id}`).then(res => dispatch(addDashboard(res.dashboard)))
   }
 }
