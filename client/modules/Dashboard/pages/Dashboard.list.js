@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
 
-import { addDashboard, fetchDashboards } from '../DashboardActions';
+import { fetchDashboards } from '../DashboardActions';
 import { getDashboards } from '../DashboardReducer';
 
 import NewDashboard from '../components/NewDashboard'
@@ -43,7 +43,6 @@ class DashboardList extends Component {
 // Retrieve data from store as props
 function mapStateToProps(state) {
   return {
-    addDashboard: addDashboard(state),
     dashboards: getDashboards(state)
   };
 }

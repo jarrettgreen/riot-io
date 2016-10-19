@@ -7,11 +7,9 @@ const initialState = { data: [] };
 const DashboardReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_DASHBOARD :
-      console.log(state.data)
       return {
         data: [action.dashboard, ...state.data]
       };
-      console.log(state.data)
     case ADD_DASHBOARDS :
       return {
         data: action.dashboards
