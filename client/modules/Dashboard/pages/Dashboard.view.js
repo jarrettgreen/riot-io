@@ -21,6 +21,10 @@ class DashboardView extends Component {
     )
   }
 }
+// Actions required to provide data for this component to render in sever side.
+DashboardView.need = [params => {
+  return fetchDashboard(params.id);
+}];
 
 function mapStateToProps(state, props) {
   return {
