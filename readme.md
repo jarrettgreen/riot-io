@@ -1,4 +1,4 @@
-![Logo](https://github.com/jarrettgreen/riot-io/blob/master/logo.png?raw=true)
+<img src='https://github.com/jarrettgreen/riot-io/blob/master/logo.png?raw=true' height=120/>
 
 [![Build Status](https://travis-ci.org/jarrettgreen/riot-io.svg?branch=develop)](https://travis-ci.org/jarrettgreen/riot-io)
 # RIOT IO - React Internet of Things
