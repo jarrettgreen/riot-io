@@ -7,8 +7,9 @@
     "build": "webpack --display-chunks --progress",
     "start": "nodemon ./server/server.js --exec babel-node --presets es2015",
     "start:webpack": "webpack-dev-server --hot --inline",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "npm run build -- --display-modules --watch"
+    "watch": "npm run build -- --display-modules --watch",
+    "test": "NODE_ENV=test PORT=8081 MONGO_DB_HOST=mongodb://localhost/riot-test ava",
+    "watch:test": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",
@@ -58,6 +59,7 @@
     "sweetalert": "^1.1.3"
   },
   "devDependencies": {
+    "ava": "^0.16.0",
     "babel-cli": "^6.16.0",
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
@@ -65,10 +67,23 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.17.0",
     "dotenv": "^2.0.0",
+    "enzyme": "^2.5.1",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "nodemon": "^1.10.2",
+    "react-addons-test-utils": "^15.3.2",
     "script-loader": "^0.7.0",
     "webpack": "^1.13.2"
+  },
+  "ava": {
+    "files": [
+      "client/**/*.spec.js",
+      "server/**/*.spec.js"
+    ],
+    "failFast": true,
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   }
 }
