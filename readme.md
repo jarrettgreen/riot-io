@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jarrettgreen/riot-io.svg?branch=develop)](https://travis-ci.org/jarrettgreen/riot-io)
+
 # RIOT IO
 ### A MERN based app for monitoring and interacting with your Internet of Things Things via MQTT.
 
