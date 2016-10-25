@@ -1,7 +1,7 @@
 import React from 'react';
 import test from 'ava';
 import { shallow } from 'enzyme';
-import DashboardList from '../../pages/Dashboard.list';
+import DashboardList from '../../components/DashboardList';
 
 const dashboards = [
   { title: 'First Dashbaord', slug: 'first-dashboard', _id: 'f34gb2bh24b24b2' },

@@ -5,11 +5,12 @@ import { fetchDashboards } from '../DashboardActions';
 import { getDashboards } from '../DashboardReducer';
 
 import NewDashboard from '../components/NewDashboard'
+import DashboardList from '../components/DashboardList'
 import DashboardListItem from '../components/DashboardListItem'
 import callApi from '../../../util/apiCaller';
 
 
-class DashboardList extends Component {
+class DashboardIndex extends Component {
   componentDidMount() {
     this.props.dispatch(fetchDashboards());
   }
@@ -27,13 +28,8 @@ class DashboardList extends Component {
       <div>
         <h1 className="page-title">Dashboards</h1>
         <div className="row">
-          <NewDashboard showModal={this.state.newDashboardDialogOpen}/>
-          {this.props.dashboards.map(dashboard => (
-              <DashboardListItem
-                dashboard={dashboard}
-                key={dashboard._id}
-              />
-            ))}
+          <NewDashboard showModal = { this.state.newDashboardDialogOpen } />
+          <DashboardList dashboards = { this.props.dashboards } />
         </div>
       </div>
     )
@@ -47,4 +43,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(DashboardList);
+export default connect(mapStateToProps)(DashboardIndex);

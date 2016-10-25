@@ -4,8 +4,8 @@ import {Route, Router, IndexRoute, hashHistory} from 'react-router'
 import App from './modules/App/app';
 
 import MqttLogViewer from './containers/mqtt_log_viewer'
-import DashboardList from './modules/Dashboard/pages/Dashboard.list.js'
-import DashboardView from './modules/Dashboard/pages/Dashboard.view.js'
+import DashboardIndex from './modules/Dashboard/pages/Dashboard.index.js'
+import DashboardShow from './modules/Dashboard/pages/Dashboard.show.js'
 // require.ensure polyfill for node
 if (typeof require.ensure !== 'function') {
   require.ensure = function requireModule(deps, callback) {
@@ -19,8 +19,8 @@ if (typeof require.ensure !== 'function') {
 export default (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={DashboardList}/>
-      <Route path="/dashboards/:slug-:id" component={DashboardView}/>
+      <IndexRoute component={DashboardIndex}/>
+      <Route path="/dashboards/:slug-:id" component={DashboardShow}/>
       <Route path="mqtt_logs" component={MqttLogViewer}/>
     </Route>
   </Router>
