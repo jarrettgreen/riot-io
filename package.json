@@ -1,6 +1,6 @@
 {
   "name": "riot-io",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React Internet of Things Dashboard & Controller",
   "main": "./server/server.js",
   "scripts": {
