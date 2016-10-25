@@ -1,6 +1,7 @@
-[![Build Status](https://travis-ci.org/jarrettgreen/riot-io.svg?branch=develop)](https://travis-ci.org/jarrettgreen/riot-io)
+![Logo](https://github.com/jarrettgreen/riot-io/blob/master/logo.png?raw=true)
 
-# RIOT IO
+[![Build Status](https://travis-ci.org/jarrettgreen/riot-io.svg?branch=develop)](https://travis-ci.org/jarrettgreen/riot-io)
+# RIOT IO - React Internet of Things
 ### A MERN based app for monitoring and interacting with your Internet of Things Things via MQTT.
 
 Currently, Riot is a BYOB (Bring your Own Broker) setup. You can configure your MQTT connection in a .env file:
