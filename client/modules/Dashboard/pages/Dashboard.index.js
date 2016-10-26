@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
 
-import { fetchDashboards } from '../DashboardActions';
+import { fetchDashboards, deleteDashboard } from '../DashboardActions';
 import { getDashboards } from '../DashboardReducer';
 
 import NewDashboard from '../components/NewDashboard'
@@ -23,13 +23,19 @@ class DashboardIndex extends Component {
   toggleNewDashboardDialog = () =>{
     this.setState({newDashboardDialogOpen: !this.state.newDashboardDialogOpen})
   }
+
+  handleDeleteDashboard = dashboard => {
+    if (confirm('Do you want to delete this dashboard')) { // eslint-disable-line
+      this.props.dispatch(deleteDashboard(dashboard));
+    }
+  };
   render() {
     return(
       <div>
         <h1 className="page-title">Dashboards</h1>
         <div className="row">
-          <NewDashboard showModal = { this.state.newDashboardDialogOpen } />
-          <DashboardList dashboards = { this.props.dashboards } />
+          <NewDashboard showModal={this.state.newDashboardDialogOpen} />
+          <DashboardList handleDeleteDashboard={this.handleDeleteDashboard} dashboards={this.props.dashboards} />
         </div>
       </div>
     )

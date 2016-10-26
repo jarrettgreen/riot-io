@@ -1,4 +1,4 @@
-import { ADD_DASHBOARD, ADD_DASHBOARDS} from './DashboardActions';
+import { ADD_DASHBOARD, ADD_DASHBOARDS, REMOVE_DASHBOARD} from './DashboardActions';
 
 // Initial State
 const initialState = { data: [] };
@@ -10,10 +10,17 @@ const DashboardReducer = (state = initialState, action) => {
       return {
         data: [action.dashboard, ...state.data]
       };
+
     case ADD_DASHBOARDS :
       return {
         data: action.dashboards
       };
+
+    case REMOVE_DASHBOARD :
+      return {
+        data: state.data.filter(dashboard => dashboard._id !== action.id),
+    };
+
     default:
       return state;
   }

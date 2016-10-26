@@ -6,7 +6,8 @@ module.exports = {
       './client/client.js'
     ],
     externals: {
-      jquery: 'jQuery'
+      jquery: 'jQuery',
+      "jsdom": "jsdom"
     },
     plugins: [
       new webpack.ProvidePlugin({
