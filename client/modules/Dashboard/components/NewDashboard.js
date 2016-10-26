@@ -3,7 +3,7 @@ import { Modal, Button, FormGroup, FormControl, ControlLabel} from 'react-bootst
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 // import swal from 'sweetalert'
-import { persistAndAddDashboard } from '../DashboardActions';
+import { createDashboard } from '../DashboardActions';
 
 class NewDashboard extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class NewDashboard extends Component {
 
   submitForm = () => {
     const newTitle = this.state.new_dashboard_title
-    this.props.dispatch(persistAndAddDashboard({ title: newTitle }))
+    this.props.dispatch(createDashboard({ title: newTitle }))
     this.toggleModal();
     // swal({title: "Dashboard Created",type: "success", timer: 1500, showConfirmButton: false})
     // callApi('dashboards', 'post', {
@@ -66,6 +66,6 @@ class NewDashboard extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return { actions: bindActionCreators(persistAndAddDashboard, dispatch) }
+  return { actions: bindActionCreators(createDashboard, dispatch) }
 }
 export default connect(mapDispatchToProps)(NewDashboard)

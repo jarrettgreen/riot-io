@@ -10,6 +10,7 @@ function DashboardList(props) {
           <DashboardListItem
             dashboard={dashboard}
             key={dashboard._id}
+            deleteDashboard={() => props.handleDeleteDashboard(dashboard._id)}
           />
         ))
       }

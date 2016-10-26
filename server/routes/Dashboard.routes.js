@@ -4,6 +4,7 @@ const router = new Router();
 
 // Get all Dashboards
 router.route('/dashboards').get(DashboardController.getDashboards);
+
 // Add a new Dashboard
 router.route('/dashboards').post(DashboardController.addDashboard);
 
@@ -11,7 +12,6 @@ router.route('/dashboards').post(DashboardController.addDashboard);
 router.route('/dashboards/:id').get(DashboardController.getDashboard);
 
 // Delete
-
 router.route('/dashboards/:id').delete(DashboardController.deleteDashboard);
 
 
