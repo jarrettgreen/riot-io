@@ -69,6 +69,7 @@
     "babel-preset-stage-2": "^6.17.0",
     "dotenv": "^2.0.0",
     "enzyme": "^2.5.1",
+    "jsdom": "^9.8.3",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "nodemon": "^1.10.2",
@@ -78,16 +79,15 @@
     "webpack": "^1.13.2"
   },
   "ava": {
+    "failFast": true,
     "files": [
       "client/**/*.spec.js",
       "server/**/*.spec.js"
     ],
     "require": [
+      "babel-register",
+      "babel-polyfill",
       "./client/util/testHelper.js"
-    ],
-    "failFast": true,
-    "require": [
-      "babel-register"
     ],
     "babel": "inherit"
   }

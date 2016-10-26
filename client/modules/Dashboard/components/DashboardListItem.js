@@ -2,9 +2,6 @@ import React from 'react';
 import {Link} from 'react-router'
 import moment from 'moment';
 import { Panel, DropdownButton, MenuItem } from 'react-bootstrap';
-global.document = require('jsdom').jsdom('<body></body>')
-global.window = document.defaultView
-global.navigator = window.navigator
 
 function DashboardListItem(props) {
   return (

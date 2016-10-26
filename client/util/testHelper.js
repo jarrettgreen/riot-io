@@ -1,8 +1,3 @@
-require('babel-register');
-require('babel-polyfill');
-
-import { jsdom } from 'jsdom';
-
-global.document = jsdom('<body></body>');
+global.document = require('jsdom').jsdom('<body></body>');
 global.window = document.defaultView;
 global.navigator = window.navigator;
