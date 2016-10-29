@@ -3,6 +3,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import MQTTClient from './lib/mqtt_client';
+import PrettyConsoleLogger from './lib/prettyConsoleLogger'
 
 // Setup Mongoose
 // Set native promises as mongoose promise
@@ -24,9 +25,10 @@ app.use(express.static('public'));
 
 
 const server = app.listen(port);
+let socketLogger = new PrettyConsoleLogger('socket.io', 'grey')
 var io = require('socket.io')(server);
 io.on('connection', function (socket) {
-  console.log('New client connected!');
+  socketLogger.log('New client connected!');
 })
 
 console.log('\n\n\n');
