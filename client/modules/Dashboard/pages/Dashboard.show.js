@@ -1,22 +1,19 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
-import callApi from '../../../util/apiCaller';
 
-import WidgetList from '../components/WidgetList'
-
-// Import Actions
 import { fetchDashboard } from '../DashboardActions';
-
-// Import Selectors
 import { getDashboard } from '../DashboardReducer';
 
-class DashboardView extends Component {
-  constructor(props) {
-    super(props);
-  }
+import WidgetList from '../components/Widgets/WidgetList'
 
+
+class DashboardView extends Component {
   componentDidMount() {
     this.props.dispatch(fetchDashboard());
+  }
+
+  constructor(props) {
+    super(props);
   }
 
   render() {
@@ -24,7 +21,7 @@ class DashboardView extends Component {
       <div>
         <h1 className="page-title">{this.props.dashboard.title}</h1>
         <div className="row">
-          <WidgetList widgets={this.props.dashboard.widgets} />
+          <WidgetList widgets={this.props.dashboard.dashboardWidgets} />
         </div>
       </div>
     )

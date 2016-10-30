@@ -1,5 +1,5 @@
 import React, { component } from 'react'
-import Switch from './Widgets/SwitchWidget'
+import SwitchWidget from './SwitchWidget'
 // import Widget from './Widget'
 
 function WidgetList(props) {
@@ -7,8 +7,7 @@ function WidgetList(props) {
     <div>
       {
         props.widgets.map(widget => (
-          < widget.type
-            widget={widget}
+          <widget.type
             key={widget._id}
           />
         ))

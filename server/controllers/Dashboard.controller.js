@@ -38,8 +38,9 @@ export function getDashboard(req, res) {
   Dashboard.findOne({ _id: req.params.id }).exec((err, dashboard) => {
     if (err) {
       res.status(500).send(err);
+    } else {
+      res.json({ dashboard });
     }
-    res.json({ dashboard });
   });
 }
 
