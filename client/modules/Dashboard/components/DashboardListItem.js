@@ -4,6 +4,7 @@ import moment from 'moment';
 import { Panel, DropdownButton, MenuItem } from 'react-bootstrap';
 
 function DashboardListItem(props) {
+  let widgetCount = props.dashboard.dashboardWidgets.length
   return (
     <div className="col-xs-12 col-md-3">
       <div className="panel panel-default">
@@ -21,7 +22,10 @@ function DashboardListItem(props) {
           </div>
         </div>
         <div className="panel-body">
+          {`${widgetCount} Widgets`}
           <Link to={`dashboards/${props.dashboard.slug}-${props.dashboard._id}`}>go</Link>
+          
+
         </div>
       </div>
     </div>

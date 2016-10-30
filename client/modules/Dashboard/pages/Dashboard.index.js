@@ -7,7 +7,6 @@ import { getDashboards } from '../DashboardReducer';
 import NewDashboard from '../components/NewDashboard'
 import DashboardList from '../components/DashboardList'
 import DashboardListItem from '../components/DashboardListItem'
-import callApi from '../../../util/apiCaller';
 
 
 class DashboardIndex extends Component {
