@@ -19,11 +19,12 @@ class DashboardView extends Component {
   render() {
     return(
       <div>
-        {/* <h1 className="page-title">{this.props.dashboard.title}</h1>
-        <div className="row">
-          <WidgetList widgets={this.props.dashboard.dashboardWidgets} />
-        </div> */}
-        {console.log(this.props)}
+        if (this.props.dashboard != undefined)
+          <h1 className="page-title">{this.props.dashboard.title}</h1>
+          <div className="row">
+            <WidgetList widgets={this.props.dashboard.dashboardWidgets} />
+          </div>
+        end
       </div>
     )
   }
