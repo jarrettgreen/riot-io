@@ -3,6 +3,7 @@ import { Panel, DropdownButton, MenuItem } from 'react-bootstrap';
 import Switch from 'react-toggle-switch'
 
 class SwitchWidget extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
@@ -11,10 +12,15 @@ class SwitchWidget extends Component {
   }
 
   watchForTopic = (message) => {
-    if (message.topic === this.props.widget.topic) {
-      this.setState({lastMessage: message.message} )
+    const widgetTopic = this.props.widget.topic
+    const onValue = this.props.widget.properties.onValue
+    const offValue = this.props.widget.properties.offValue
+
+    if (message.topic === widgetTopic && (message.message === onValue || message.message === offValue)){
+      this.setState( {lastMessage: message.message} )
     }
   }
+
 
   componentDidMount() {
     console.log(this.props.widget)
