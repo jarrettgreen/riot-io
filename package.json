@@ -51,6 +51,7 @@
     "react-dom": "^15.3.2",
     "react-router": "^2.8.1",
     "react-tap-event-plugin": "^1.0.0",
+    "react-toggle-switch": "^2.1.2",
     "redux-devtools-extension": "^1.0.0",
     "request": "^2.75.0",
     "sanitize-html": "^1.13.0",
