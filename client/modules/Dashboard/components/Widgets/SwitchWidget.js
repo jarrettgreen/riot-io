@@ -17,6 +17,7 @@ class SwitchWidget extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props.widget)
     this.socket = io.connect('/');
     this.socket.on('new mqtt event', (message) => {
       this.watchForTopic(JSON.parse(message))
@@ -35,7 +36,7 @@ class SwitchWidget extends Component {
               {this.props.widget.topic}
           </div>
           <div className="panel-body">
-           <Switch enabled={false}/>
+           <Switch on={this.state.lastMessage === this.props.widget.properties.onValue ?  true : false}/>
             {this.state.lastMessage}
           </div>
         </div>
