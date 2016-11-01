@@ -4,7 +4,7 @@ import sinon from 'sinon';
 import { mount, shallow } from 'enzyme'
 import DashboardListItem from '../../components/DashboardListItem'
 
-const dashboard = { title: 'Test Dashboard' }
+const dashboard = { title: 'Test Dashboard', dashboardWidgets: [] }
 const props = {
   dashboard,
   deleteDashboard: () => {}

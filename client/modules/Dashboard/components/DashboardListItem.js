@@ -24,7 +24,7 @@ function DashboardListItem(props) {
         <div className="panel-body">
           {`${widgetCount} Widgets`}
           <Link to={`dashboards/${props.dashboard.slug}-${props.dashboard._id}`}>go</Link>
-          
+
 
         </div>
       </div>
