@@ -26,6 +26,7 @@ class MQTTClient {
     }
 
     let logger = new PrettyConsoleLogger('MQTT', 'cyan')
+
     this.client = mqtt.connect(this.host, this.options)
 
     this.client.on('connect', function () {
