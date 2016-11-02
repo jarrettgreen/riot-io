@@ -7,8 +7,21 @@ class SwitchWidget extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      lastMessage: ""
+      lastMessage: "",
+      topic: this.props.widget.topic
     }
+  }
+
+  componentDidMount() {
+    this.socket = io.connect('/');
+    this.socket.on('new mqtt event', (message) => {
+      this.watchForTopic(JSON.parse(message))
+		})
+    this.socket.emit('publish to mqtt', this.state.topic)
+  }
+
+  componentWillUnmount() {
+    this.socket.close();
   }
 
   watchForTopic = (message) => {
@@ -21,18 +34,12 @@ class SwitchWidget extends Component {
     }
   }
 
+  handleClick = () => {
 
-  componentDidMount() {
-    console.log(this.props.widget)
-    this.socket = io.connect('/');
-    this.socket.on('new mqtt event', (message) => {
-      this.watchForTopic(JSON.parse(message))
-		})
+    this.socket.emit('publish to mqtt', this.state.topic)
+    console.log('dunno')
   }
 
-  componentWillUnmount() {
-    this.socket.close();
-  }
 
   render() {
     return (
@@ -42,7 +49,8 @@ class SwitchWidget extends Component {
               {this.props.widget.topic}
           </div>
           <div className="panel-body">
-           <Switch on={this.state.lastMessage === this.props.widget.properties.onValue ?  true : false}/>
+           <Switch onClick={this.handleClick}
+            on={this.state.lastMessage === this.props.widget.properties.onValue ?  true : false}/>
             {this.state.lastMessage}
           </div>
         </div>

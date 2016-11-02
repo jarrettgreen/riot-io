@@ -27,7 +27,7 @@ app.use(express.static('public'));
 const server = app.listen(port);
 let socketLogger = new PrettyConsoleLogger('socket.io', 'grey')
 var io = require('socket.io')(server);
-io.on('connection', function (socket) {
+io.on('connection', (socket) => {
   socketLogger.log('New client connected!');
 })
 

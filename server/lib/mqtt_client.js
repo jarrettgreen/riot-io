@@ -24,6 +24,7 @@ class MQTTClient {
       password: process.env.MQTT_PASS,
       rejectUnauthorized: false
     }
+
     let logger = new PrettyConsoleLogger('MQTT', 'cyan')
     this.client = mqtt.connect(this.host, this.options)
 
@@ -34,10 +35,13 @@ class MQTTClient {
     let emitMessage = (message) => {
       this.socket.emit('new mqtt event', JSON.stringify(message));
     }
+    this.socket.on('publish to mqtt', (message) => {
+      logger.log('yo')
+    });
 
     this.client.subscribe('#', { qos: 0 })
 
-    this.client.on('message', function (topic, message, pakcet) {
+    this.client.on('message', function (topic, message, packet) {
       const newMqttEvent = new MqttEvent( { topic, message } )
       newMqttEvent.cuid = cuid();
 
