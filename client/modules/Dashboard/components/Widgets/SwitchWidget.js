@@ -37,7 +37,7 @@ class SwitchWidget extends Component {
   handleClick = () => {
     this.socket.emit('publish to mqtt', {
       topic: this.props.widget.topic,
-      value: this.state.lastValue === this.props.widget.properties.offValue ? this.props.widget.properties.onValue : this.props.widget.properties.offValue
+      value: this.state.lastMessage === this.props.widget.properties.offValue ? this.props.widget.properties.onValue : this.props.widget.properties.offValue
     })
   }
 
