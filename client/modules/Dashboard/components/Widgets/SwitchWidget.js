@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
-import { Panel, DropdownButton, MenuItem } from 'react-bootstrap';
+import React, {Component} from 'react'
+import { Panel, DropdownButton, MenuItem } from 'react-bootstrap'
 import Switch from 'react-toggle-switch'
+import io from 'socket.io-client'
 
 class SwitchWidget extends Component {
 
@@ -13,11 +14,11 @@ class SwitchWidget extends Component {
   }
 
   componentDidMount() {
-    this.socket = io.connect('/');
+    this.socket = io.connect('/')
     this.socket.on('new mqtt event', (message) => {
       this.watchForTopic(JSON.parse(message))
 		})
-    this.socket.emit('publish to mqtt', this.state.topic)
+    this.socket.emit('publish to mqtt', {topic: this.props.widget.topic})
   }
 
   componentWillUnmount() {
@@ -35,9 +36,7 @@ class SwitchWidget extends Component {
   }
 
   handleClick = () => {
-
-    this.socket.emit('publish to mqtt', this.state.topic)
-    console.log('dunno')
+    this.socket.emit('publish to mqtt', {topic: this.props.widget.topic})
   }
 
 

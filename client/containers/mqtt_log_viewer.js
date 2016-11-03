@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import MqttLog from '../components/mqtt_log'
-import callApi from '../util/apiCaller';
+import callApi from '../util/apiCaller'
+import io from 'socket.io-client'
+
 class MqttLogViewer extends Component {
   constructor(props) {
     super(props);

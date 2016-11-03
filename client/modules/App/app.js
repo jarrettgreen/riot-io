@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.socket = io();
+    // this.socket = io();
   }
   render() {
     return (

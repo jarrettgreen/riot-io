@@ -27,9 +27,15 @@ app.use(express.static('public'));
 const server = app.listen(port);
 let socketLogger = new PrettyConsoleLogger('socket.io', 'grey')
 var io = require('socket.io')(server);
+
 io.on('connection', (socket) => {
-  socketLogger.log('New client connected!');
+  socketLogger.log('Client connected')
 })
+
+io.on('disconnect', () => {
+  socketLogger.log('Client Disconnected')
+});
+
 
 console.log('\n\n\n');
 console.log('        ██████╗ ██╗ ██████╗ ████████╗');

@@ -27,17 +27,17 @@ class MQTTClient {
 
     let logger = new PrettyConsoleLogger('MQTT', 'cyan')
 
-    this.client = mqtt.connect(this.host, this.options)
-
-    this.client.on('connect', function () {
-      logger.log(`Connected to ${process.env.MQTT_HOST}`)
-    });
-
     let emitMessage = (message) => {
       this.socket.emit('new mqtt event', JSON.stringify(message));
     }
     this.socket.on('publish to mqtt', (message) => {
-      logger.log('yo')
+      console.log('yo')
+    });
+
+    this.client = mqtt.connect(this.host, this.options)
+
+    this.client.on('connect', function () {
+      logger.log(`Connected to ${process.env.MQTT_HOST}`)
     });
 
     this.client.subscribe('#', { qos: 0 })
