@@ -30,9 +30,6 @@ class MQTTClient {
     let emitMessage = (message) => {
       this.socket.emit('new mqtt event', JSON.stringify(message));
     }
-    this.socket.on('publish to mqtt', (message) => {
-      console.log('yo')
-    });
 
     this.client = mqtt.connect(this.host, this.options)
 
@@ -54,8 +51,18 @@ class MQTTClient {
           emitMessage(newMqttEvent);
         }
       });
-
     })
+
+    this.socket.on('connection', (socket) => {
+      socket.on('publish to mqtt', (message) => {
+        if (message.value === undefined) {
+          logger.log('Bad MQTT Event')
+        } else {
+          this.client.publish(message.topic, message.value)
+        }
+      });
+    })
+
   }
 }
 

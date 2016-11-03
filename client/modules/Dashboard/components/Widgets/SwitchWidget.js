@@ -14,11 +14,10 @@ class SwitchWidget extends Component {
   }
 
   componentDidMount() {
-    this.socket = io.connect('/')
+    this.socket = io.connect('/',{transports: ['websocket']})
     this.socket.on('new mqtt event', (message) => {
       this.watchForTopic(JSON.parse(message))
 		})
-    this.socket.emit('publish to mqtt', {topic: this.props.widget.topic})
   }
 
   componentWillUnmount() {
@@ -38,7 +37,6 @@ class SwitchWidget extends Component {
   handleClick = () => {
     this.socket.emit('publish to mqtt', {topic: this.props.widget.topic})
   }
-
 
   render() {
     return (

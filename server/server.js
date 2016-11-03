@@ -30,11 +30,12 @@ var io = require('socket.io')(server);
 
 io.on('connection', (socket) => {
   socketLogger.log('Client connected')
+  socket.on('disconnect', (socket) => {
+    socketLogger.log('Client Disconnected')
+  });
 })
 
-io.on('disconnect', () => {
-  socketLogger.log('Client Disconnected')
-});
+
 
 
 console.log('\n\n\n');
