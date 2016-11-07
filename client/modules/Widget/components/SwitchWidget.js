@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { Panel, DropdownButton, MenuItem } from 'react-bootstrap'
 import Switch from 'react-toggle-switch'
 import io from 'socket.io-client'
-import callApi from '../../../../util/apiCaller';
+import callApi from '../../../util/apiCaller';
 
 class SwitchWidget extends Component {
 
@@ -15,12 +15,13 @@ class SwitchWidget extends Component {
   }
 
   componentDidMount() {
-    this.fetchLastKnownTopicMessage()
+    if (this.state.lastMessage === "") {
+      this.fetchLastKnownTopicMessage()
+    }
     this.socket = io.connect('/',{transports: ['websocket']})
     this.socket.on('new mqtt event', (message) => {
       this.watchForTopic(JSON.parse(message))
 		})
-    console.log(this.state.lastMessage)
   }
 
   componentWillUnmount() {
@@ -31,7 +32,6 @@ class SwitchWidget extends Component {
     callApi(`mqtt_events/${this.props.widget.topic}?limit=1`).then(res => {
       this.setState( {lastMessage: res.mqtt_events[0].message} )
     });
-    console.log(this.state.lastMessage)
   }
   watchForTopic = (message) => {
     const widgetTopic = this.props.widget.topic

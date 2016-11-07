@@ -1,5 +1,5 @@
 import React, { component } from 'react'
-import SwitchWidget from './SwitchWidget'
+import SwitchWidget from './components/SwitchWidget'
 // import Widget from './Widget'
 
 function WidgetList(props) {

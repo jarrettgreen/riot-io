@@ -3,12 +3,16 @@ import sanitizeHtml from 'sanitize-html';
 import cuid from 'cuid';
 
 export function getMqttEvents(req, res) {
-  MqttEvent.find().sort({ created: 'desc'}).limit(20).exec((err, mqtt_events) => {
-    if (err) {
-      res.status(500).send(err);
+  MqttEvent.find()
+    .sort({ created: 'desc'})
+    .limit(20)
+    .exec((err, mqtt_events) => {
+      if (err) {
+        res.status(500).send(err);
+      }
+      res.json(mqtt_events);
     }
-    res.json(mqtt_events);
-  });
+  );
 }
 
 export function getMqttEventsByTopic(req, res) {

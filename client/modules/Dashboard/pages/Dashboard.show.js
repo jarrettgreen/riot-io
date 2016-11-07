@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
-
+import NewWidget from '../../Widget/components/NewWidget'
+import WidgetList from '../../Widget/WidgetList'
 
 import { fetchDashboard } from '../DashboardActions';
 import { getDashboard } from '../DashboardReducer';
 
-import WidgetList from '../components/Widgets/WidgetList'
+
 
 
 class DashboardView extends Component {
@@ -22,7 +23,9 @@ class DashboardView extends Component {
       return(
 
         <div>
+          <NewWidget/>
           <h1 className="page-title">{this.props.dashboard.title}</h1>
+
           <div className="row">
             <WidgetList widgets={this.props.dashboard.dashboardWidgets} />
           </div>
