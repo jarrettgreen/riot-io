@@ -6,6 +6,4 @@ const mqttEventSchema = new Schema({
   created: { type: Date, default: Date.now },
 });
 
-const  mqttEvent = mongoose.model('mqttEvent', mqttEventSchema);
-
-export default mqttEvent
+export default mongoose.model('mqttEvent', mqttEventSchema);

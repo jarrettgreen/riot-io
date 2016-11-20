@@ -1,5 +1,5 @@
 import DashboardWidget from '../models/dashboardWidget.model';
-import Dashboard from '../models/dashboard.model';
+import Dashboard from '../models/Dashboard.model';
 import sanitizeHtml from 'sanitize-html';
 import slug from 'limax';
 // import cuid from 'cuid';

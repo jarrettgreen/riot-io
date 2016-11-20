@@ -12,5 +12,4 @@ export const dashboardWidgetSchema = new Schema({
   }
 });
 
-const  DashboardWidget = mongoose.model('dashboardWidget', dashboardWidgetSchema);
-export default DashboardWidget
+export default mongoose.model('DashboardWidget', dashboardWidgetSchema);
