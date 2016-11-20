@@ -1,34 +1,33 @@
-import MqttEvent from '../models/MqttEvent.model';
-import sanitizeHtml from 'sanitize-html';
-import cuid from 'cuid';
+import MqttEvent from '../models/MqttEvent.model'
+// import sanitizeHtml from 'sanitize-html'
+// import cuid from 'cuid'
 
-export function getMqttEvents(req, res) {
+export function getMqttEvents (req, res) {
   MqttEvent.find()
-    .sort({ created: 'desc'})
+    .sort({created: 'desc'})
     .limit(20)
     .exec((err, mqtt_events) => {
       if (err) {
-        res.status(500).send(err);
+        res.status(500).send(err)
       }
-      res.json(mqtt_events);
+      res.json(mqtt_events)
     }
-  );
+  )
 }
 
-export function getMqttEventsByTopic(req, res) {
+export function getMqttEventsByTopic (req, res) {
   MqttEvent.find()
-    .sort({ created: 'desc'})
+    .sort({created: 'desc'})
     .where('topic').equals(req.params.topic)
-    .limit(parseInt(req.query.limit))
+    .limit(parseInt(req.query.limit, 10))
     .exec((err, mqtt_events) => {
       if (err) {
-        res.status(500).send(err);
+        res.status(500).send(err)
       }
-      res.json({mqtt_events});
+      res.json({mqtt_events})
     }
-  );
+  )
 }
-
 
 // export function addEvent(req, res) {
 //   if (!req.body.post.name || !req.body.post.title || !req.body.post.content) {

@@ -8,10 +8,11 @@ import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 
 class NavBar extends Component {
   constructor(props) {
-    super(props);
-    this.state = {open: false};
+    super(props)
+    this.state = {open: false}
   }
-  handleToggle = () => this.setState({open: !this.state.open});
+
+  handleToggle = () => this.setState({open: !this.state.open})
 
   handleClose = () => this.setState({open: false});
 
