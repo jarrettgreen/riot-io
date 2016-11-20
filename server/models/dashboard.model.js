@@ -1,5 +1,6 @@
 import mongoose, { Schema } from 'mongoose'
 import { dashboardWidgetSchema } from './dashboardWidget.model'
+
 const dashboardSchema = new Schema({
   title: { type: 'String', required: true },
   slug: { type: 'String', required: true },
