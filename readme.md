@@ -1,7 +1,8 @@
 <img src='https://github.com/jarrettgreen/riot-io/blob/master/logo.png?raw=true' height=120/>
 
-[![Build Status](https://travis-ci.org/jarrettgreen/riot-io.svg?branch=develop)](https://travis-ci.org/jarrettgreen/riot-io)
+[![Build Status](https://travis-ci.org/jarrettgreen/riot-io.svg?branch=master)](https://travis-ci.org/jarrettgreen/riot-io)
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/riot-io/general)
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard%20js-brightgreen.svg)](http://standardjs.com/)
 
 # RIOT IO - React Internet of Things
 ### A MERN based app for monitoring and interacting with your Internet of Things Things via MQTT.
@@ -10,7 +11,7 @@ Currently, Riot is a BYOB (Bring your Own Broker) setup. You can configure your 
 
 ```
 MQTT_HOST=mqtt://somehost
-MQTT_USER=usename
+MQTT_USER=username
 MQTT_PASS=password
 
 ```
