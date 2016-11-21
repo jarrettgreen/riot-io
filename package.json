@@ -52,7 +52,7 @@
     "react-mfb": "^0.4.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
-    "react-tap-event-plugin": "^1.0.0",
+    "react-tap-event-plugin": "^2.0.1",
     "react-toggle-switch": "^2.1.2",
     "redux": "^3.6.0",
     "redux-devtools-extension": "^1.0.0",
