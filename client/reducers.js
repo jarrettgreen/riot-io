@@ -1,9 +1,11 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 
-import dashboards from './modules/Dashboard/DashboardReducer';
+import dashboards from './modules/Dashboard/DashboardReducer'
+import widgets from './modules/Widget/WidgetReducer'
 
 const rootReducer = combineReducers({
-  dashboards
-});
+  dashboards,
+  widgets
+})
 
-export default rootReducer;
+export default rootReducer

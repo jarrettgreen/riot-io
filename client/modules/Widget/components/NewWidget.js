@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
-
+import { initWidget } from '../WidgetActions'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux'
 class NewWidget extends Component {
+
   constructor (props) {
     super(props)
+  }
+
+  handleClick = () => {
+    this.props.dispatch(initWidget('SwitchWidget'))
   }
 
   render () {
@@ -13,11 +20,13 @@ class NewWidget extends Component {
           <span className='caret'></span>
         </button>
         <ul className='dropdown-menu' aria-labelledby='dropdownMenu1'>
-          <li><a onClick={this.props.dispatch(toggleNewSwitchWidget())}>ToggleSwitch</a></li>
+          <li><a onClick={this.handleClick}>ToggleSwitch</a></li>
         </ul>
       </div>
     )
   }
 }
-
-export default NewWidget
+function mapDispatchToProps(dispatch) {
+  return { actions: bindActionCreators(initWidget, dispatch) }
+}
+export default connect(mapDispatchToProps)(NewWidget)

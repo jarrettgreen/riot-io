@@ -16,11 +16,11 @@ class DashboardView extends Component {
   }
 
   render () {
-    if (this.props.dashboard){
-      return(
+    if (this.props.dashboard) {
+      return (
 
         <div>
-          <NewWidget/>
+          <NewWidget />
           <h1 className='page-title'>{this.props.dashboard.title}</h1>
 
           <div className='row'>
