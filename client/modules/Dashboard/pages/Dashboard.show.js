@@ -20,10 +20,11 @@ class DashboardView extends Component {
       return (
 
         <div>
-          <NewWidget />
+
           <h1 className='page-title'>{this.props.dashboard.title}</h1>
 
           <div className='row'>
+            <NewWidget />
             <WidgetList widgets={this.props.dashboard.dashboardWidgets} />
           </div>
         </div>
